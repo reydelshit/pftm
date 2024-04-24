@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom'
 
+import PigsManagement from '@/pages/PigsManagement'
 import Sidebar from '@/pages/SidebarFarmer'
-import Farmers from '@/pages/Farmers'
 
 export default function FarmerRoot() {
   const location = useLocation()
@@ -11,7 +11,7 @@ export default function FarmerRoot() {
     <div className="flex w-full bg-primary-red">
       <Sidebar />
       <div className="w-full border-2 px-2">
-        {location.pathname === '/' ? <Farmers /> : <Outlet />}
+        {location.pathname === '/' ? <PigsManagement /> : <Outlet />}
       </div>
     </div>
   )

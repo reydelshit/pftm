@@ -18,7 +18,7 @@ export default function Sidebar() {
     <div className="block w-[20rem] h-dvh bg-primary-yellow text-primary-red fixed z-10">
       <div className=" flex flex-col justify-between w-full h-[90%]">
         <div className="flex flex-col font-semibold px-[1rem] mt-[4rem] mb-2">
-          <Link
+          {/* <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/' || currentPath.includes('/crops')
                 ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
@@ -28,7 +28,7 @@ export default function Sidebar() {
           >
             <GiPlantSeed className="text-md h-[1.5rem] w-[1.5rem]" />
             SCHEDULE REPORTS
-          </Link>
+          </Link> */}
 
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
@@ -61,8 +61,8 @@ export default function Sidebar() {
             } `}
             to="/generate-schedule"
           >
-            <GrSchedules className="text-md h-[1.5rem] w-[1.5rem]" /> LIVE STOCK
-            REPORTS
+            <GrSchedules className="text-md h-[1.5rem] w-[1.5rem]" /> SCHEDULE
+            GENERATION
           </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
@@ -73,12 +73,12 @@ export default function Sidebar() {
             to="/reports"
           >
             <GrAnalytics className="text-md h-[1.5rem] w-[1.5rem]" /> LIVESTOCKS
-            SCHEDULE
+            REPORTS
           </Link>
         </div>
 
         <div className="flex justify-center flex-col items-center mt-[2rem]">
-          <WeatherApi />
+          {/* <WeatherApi /> */}
 
           <Button
             className="bg-primary-yellow border-4 mt-[2rem] border-primary-red p-6 rounded-full w-[10rem] font-bold text-primary-red hover:bg-primary-red hover:text-primary-yellow transition-all duration-300 ease-in-out text-2xl"

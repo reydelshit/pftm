@@ -77,3 +77,12 @@ export type PigBuffTypes = {
   created_at: string
   user_id: string
 }
+
+export type SchedulePigsTypes = {
+  sched_id: number
+  sched_name: string
+  pig_id: number
+  sched_date: string
+  created_at: string
+  user_id: string
+}
