@@ -10,76 +10,63 @@ import { MdDelete } from 'react-icons/md'
 
 import { FaPencilAlt } from 'react-icons/fa'
 
-import { FieldTypes } from '@/entities/types'
+import { PigTypes } from '@/entities/types'
 
 type FieldManagementTableProps = {
-  fieldData: FieldTypes[]
-  sortedData: FieldTypes[]
+  pigData: PigTypes[]
+  sortedData: PigTypes[]
   handleUpdateForm: (id: number) => void
-  handleDeleteField: (id: number) => void
+  handleDeletePig: (id: number) => void
 }
-export default function FieldManagementTable({
-  fieldData,
+export default function PigManagementTable({
+  pigData,
   sortedData,
   handleUpdateForm,
-  handleDeleteField,
+  handleDeletePig,
 }: FieldManagementTableProps) {
   return (
     <Table className="w-full ">
       <TableHeader>
         <TableRow className="text-primary-yellow border-b-4 border-primary-yellow">
-          {/* <TableHead className="text-primary-yellow text-xl">
-            Field ID
-          </TableHead> */}
+          <TableHead className="text-primary-yellow text-xl">PIG NO.</TableHead>
           <TableHead className="text-primary-yellow text-xl">
-            Field Name
+            Building
           </TableHead>
-          <TableHead className="text-primary-yellow text-xl">
-            Location
-          </TableHead>
+          <TableHead className="text-primary-yellow text-xl">Pen</TableHead>
 
           <TableHead className="text-primary-yellow text-xl">
-            Size (Area)
+            Assigned Farmer
           </TableHead>
-
           <TableHead className="text-primary-yellow text-xl">
-            Soil Type
-          </TableHead>
-
-          <TableHead className="text-primary-yellow text-xl">
-            Irrigation System
-          </TableHead>
-
-          <TableHead className="text-primary-yellow text-xl">
-            Crop History
+            Created At
           </TableHead>
           <TableHead className="text-primary-yellow text-xl w-[10rem]"></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody className="text-xl ">
-        {fieldData.length > 0 ? (
-          sortedData.map((field, index) => (
+        {pigData.length > 0 ? (
+          sortedData.map((pig, index) => (
             <TableRow
               key={index}
               className="text-primary-yellow border-b-4 border-primary-yellow"
             >
               {/* <TableCell>{field.field_id}</TableCell> */}
-              <TableCell>{field.field_name}</TableCell>
-              <TableCell>{field.location}</TableCell>
+              <TableCell>{pig.pig_tag}</TableCell>
+              <TableCell>{pig.building}</TableCell>
 
-              <TableCell>{field.field_size}</TableCell>
-              <TableCell>{field.soil_type}</TableCell>
-              <TableCell>{field.irrigation_system}</TableCell>
-              <TableCell>{field.crop_history}</TableCell>
+              <TableCell>{pig.pen}</TableCell>
+              <TableCell>{pig.assigned_farmer}</TableCell>
+
+              <TableCell>{pig.created_at}</TableCell>
 
               <TableCell className="flex gap-2">
                 <FaPencilAlt
-                  onClick={() => handleUpdateForm(field.field_id)}
+                  onClick={() => handleUpdateForm(pig.pig_id)}
                   className="p-2 text-[2.5rem] text-primary-yellow cursor-pointer"
                 />
 
                 <MdDelete
-                  onClick={() => handleDeleteField(field.field_id)}
+                  onClick={() => handleDeletePig(pig.pig_id)}
                   className="p-2 text-[2.5rem] text-primary-yellow cursor-pointer"
                 />
               </TableCell>

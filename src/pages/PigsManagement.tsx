@@ -1,28 +1,31 @@
 import { Button } from '@/components/ui/button'
-import { FieldTypes } from '@/entities/types'
+import { FieldTypes, PigTypes } from '@/entities/types'
 import ButtonStyle from '@/lib/ButtonStyle'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import AddFieldFom from './field-management/AddFieldForm'
-import FieldManagementTable from './field-management/FieldManagementTable'
+import AddPigForm from './field-management/AddPigForm'
+import PigManagementTable from './field-management/PigManagementTable'
 import UpdateForm from './field-management/UpdateForm'
 
-export default function FieldManagement() {
-  const [showAddField, setShowAddField] = useState(false)
-  const [fieldDetails, setFieldDetails] = useState({} as FieldTypes)
-  const [fieldData, setFieldData] = useState<FieldTypes[]>([])
-  const [showUpdateFormField, setShowUpdateFormField] = useState(false)
-  const [fieldUpdateDetails, setFieldUpdateDetails] =
-    useState<FieldTypes | null>(null)
+export default function PigsManagement() {
+  const [showAddPig, setShowAddPig] = useState(false)
+  const [pigDetails, setPigDetails] = useState({} as PigTypes)
+  const [pigData, setPigData] = useState<PigTypes[]>([])
+  const [showUpdateFormPig, setShowUpdateFormPig] = useState(false)
+  const [pigUpdateDetails, setPigUpdateDetails] = useState<PigTypes | null>(
+    null,
+  )
   const [fieldUpdateID, setFieldUpdateID] = useState(0)
   const [irrigationSystem, setIrrigationSystem] = useState('')
   const [soilType, setSoilType] = useState('')
 
+  const [building, setBuilding] = useState('' as string)
+
   const user_id = localStorage.getItem('cmhs_token')
 
-  const fetchFieldData = () => {
+  const fetchPigs = () => {
     axios
-      .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/field.php`, {
+      .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
         params: {
           user_id: user_id,
         },
@@ -30,7 +33,7 @@ export default function FieldManagement() {
       .then((res) => {
         if (res.data) {
           console.log(res.data)
-          setFieldData(res.data)
+          setPigData(res.data)
         }
       })
   }
@@ -39,30 +42,29 @@ export default function FieldManagement() {
     setIrrigationSystem(e)
   }
 
-  const handleSoitType = (e: string) => {
-    setSoilType(e)
+  const handleBuilding = (e: string) => {
+    setBuilding(e)
   }
 
   useEffect(() => {
-    fetchFieldData()
+    fetchPigs()
   }, [])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     axios
-      .post(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/field.php`, {
+      .post(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-        ...fieldDetails,
-        irrigation_system: irrigationSystem,
-        soil_type: soilType,
+        ...pigDetails,
+        building: building,
         user_id: user_id,
       })
       .then((res) => {
         if (res.data) {
-          fetchFieldData()
-          setShowAddField(!showAddField)
+          fetchPigs()
+          setShowAddPig(!showAddPig)
         }
         console.log(res.data)
       })
@@ -71,37 +73,37 @@ export default function FieldManagement() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     console.log(name, value)
-    setFieldDetails((values) => ({ ...values, [name]: value }))
+    setPigDetails((values) => ({ ...values, [name]: value }))
   }
 
-  const handleDeleteField = (field_id: number) => {
+  const handleDeletePig = (pig_id: number) => {
     axios
-      .delete(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/field.php`, {
+      .delete(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
         data: {
-          field_id: field_id,
+          pig_id: pig_id,
         },
       })
       .then((res) => {
         if (res.data) {
           console.log(res.data)
-          fetchFieldData()
+          fetchPigs()
         }
       })
   }
 
   const fetchUpdateFieldData = (id: number) => {
     axios
-      .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/field.php`, {
+      .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
         params: {
-          field_id: id,
+          pig_id: id,
         },
       })
       .then((res) => {
         if (res.data) {
           console.log(res.data)
-          setFieldUpdateDetails(res.data[0])
+          setPigUpdateDetails(res.data[0])
 
-          setShowUpdateFormField(true)
+          setShowUpdateFormPig(true)
         }
       })
   }
@@ -114,30 +116,26 @@ export default function FieldManagement() {
     e.preventDefault()
     axios
       .put(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/field.php`, {
-        field_id: fieldUpdateID,
-        field_name: fieldDetails.field_name
-          ? fieldDetails.field_name
-          : fieldUpdateDetails?.field_name!,
-        field_size: fieldDetails.field_size
-          ? fieldDetails.field_size
-          : fieldUpdateDetails?.field_size!,
-        soil_type: fieldDetails.soil_type
-          ? fieldDetails.soil_type
-          : fieldUpdateDetails?.soil_type!,
-        irrigation_system: fieldDetails.irrigation_system
-          ? fieldDetails.irrigation_system
-          : fieldUpdateDetails?.irrigation_system!,
-        location: fieldDetails.location
-          ? fieldDetails.location
-          : fieldUpdateDetails?.location!,
-        crop_history: fieldDetails.crop_history
-          ? fieldDetails.crop_history
-          : fieldUpdateDetails?.crop_history!,
+        pig_id: fieldUpdateID,
+        pig_tag: pigDetails.pig_tag
+          ? pigDetails.pig_tag
+          : pigUpdateDetails?.pig_tag!,
+        building: pigDetails.building
+          ? pigDetails.building
+          : pigUpdateDetails?.building!,
+        pen: pigDetails.pen ? pigDetails.pen : pigUpdateDetails?.pen!,
+        assigned_farmer: pigDetails.assigned_farmer
+          ? pigDetails.assigned_farmer
+          : pigUpdateDetails?.assigned_farmer!,
+        short_desc: pigDetails.short_desc
+          ? pigDetails.short_desc
+          : pigUpdateDetails?.short_desc!,
+
         user_id: user_id,
       })
       .then((res) => {
-        setShowUpdateFormField(false)
-        fetchFieldData()
+        setShowUpdateFormPig(false)
+        fetchPigs()
         console.log(res.data)
       })
   }
@@ -149,12 +147,12 @@ export default function FieldManagement() {
     setSortOrder(newSortOrder)
   }
 
-  const sortedData = [...fieldData].sort((a, b) => {
+  const sortedData = [...pigData].sort((a, b) => {
     // Sort by crops name
     if (sortOrder === 'asc') {
-      return a.field_name.localeCompare(b.location)
+      return a.pig_tag.localeCompare(b.assigned_farmer)
     } else {
-      return b.field_name.localeCompare(a.location)
+      return b.pig_tag.localeCompare(a.assigned_farmer)
     }
   })
 
@@ -162,7 +160,7 @@ export default function FieldManagement() {
     <div className="w-full h-dvh flex items-start flex-col pl-[20rem] relative">
       <div className="my-[2.5rem] flex justify-between items-center w-full">
         <h1 className="text-[5rem] font-semibold text-primary-yellow">
-          Field Management
+          PIG MANAGEMENT
         </h1>
       </div>
 
@@ -181,39 +179,38 @@ export default function FieldManagement() {
 
               <ButtonStyle
                 background="yellow"
-                onCLick={() => setShowAddField(!showAddField)}
+                onCLick={() => setShowAddPig(!showAddPig)}
               >
-                Add Field
+                Add Pig
               </ButtonStyle>
             </div>
             <div className="w-[100%] min-h-[80%] border-4 border-primary-yellow rounded-3xl p-4">
-              <FieldManagementTable
+              <PigManagementTable
                 sortedData={sortedData}
-                fieldData={sortedData}
+                pigData={pigData}
                 handleUpdateForm={handleUpdateForm}
-                handleDeleteField={handleDeleteField}
+                handleDeletePig={handleDeletePig}
               />
             </div>
           </div>
         </div>
       </div>
 
-      {showAddField && (
-        <AddFieldFom
-          handleIrrigation={handleIrrigation}
-          handleSoitType={handleSoitType}
+      {showAddPig && (
+        <AddPigForm
+          handleBuilding={handleBuilding}
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
-          setShowAddField={setShowAddField}
-          showAddField={showAddField}
+          setShowAddPig={setShowAddPig}
+          showAddPig={showAddPig}
         />
       )}
 
-      {showUpdateFormField && (
+      {showUpdateFormPig && (
         <UpdateForm
           handleInputChange={handleInputChange}
-          setShowUpdateFormField={setShowUpdateFormField}
-          fieldUpdateDetails={fieldUpdateDetails}
+          setShowUpdateFormPig={setShowUpdateFormPig}
+          pigUpdateDetails={pigUpdateDetails}
           handleUpdateSubmit={handleUpdateSubmit}
         />
       )}

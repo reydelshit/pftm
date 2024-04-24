@@ -8,7 +8,7 @@ import FarmerRoot from './root/FarmerRoot'
 
 import Login from './Login'
 import ViewCrops from './pages/crops/ViewCrops'
-import FieldManagement from './pages/FieldManagement'
+import PigManagement from './pages/PigsManagement'
 import Reports from './pages/Reports'
 import ScheduleGeneration from './pages/ScheduleGeneration'
 import Crops from './pages/Crops'
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
         element: <ViewCrops />,
       },
       {
-        path: 'manage-field',
-        element: <FieldManagement />,
+        path: 'pig-management',
+        element: <PigManagement />,
       },
       {
         path: 'Reports',

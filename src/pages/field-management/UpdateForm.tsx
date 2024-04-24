@@ -1,20 +1,20 @@
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { FieldTypes } from '@/entities/types'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { PigTypes } from '@/entities/types'
 
 type UpdateFromProps = {
   handleUpdateSubmit: (e: React.FormEvent<HTMLFormElement>) => void
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  fieldUpdateDetails: FieldTypes | null
-  setShowUpdateFormField: (e: boolean) => void
+  pigUpdateDetails: PigTypes | null
+  setShowUpdateFormPig: (e: boolean) => void
 }
 
 export default function UpdateForm({
   handleUpdateSubmit,
   handleInputChange,
-  fieldUpdateDetails,
-  setShowUpdateFormField,
+  pigUpdateDetails,
+  setShowUpdateFormPig,
 }: UpdateFromProps) {
   return (
     <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-red bg-opacity-90 flex justify-center items-center">
@@ -26,70 +26,59 @@ export default function UpdateForm({
           <h1 className="font-bold text-2xl text-primary-red py-4">
             UPDATE SOIL
           </h1>
-          <Label className="text-primary-red my-2 block">Field name</Label>
+          <Label className="text-primary-red my-2 block">Pig Tag</Label>
           <Input
             className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
-            placeholder="Field name"
-            name="field_name"
+            placeholder="Pig Tag"
+            name="pig_tag"
             onChange={handleInputChange}
-            defaultValue={fieldUpdateDetails?.field_name}
+            defaultValue={pigUpdateDetails?.pig_tag}
           />
 
-          <Label className="text-primary-red my-2 block">Location</Label>
+          <Label className="text-primary-red my-2 block">Building</Label>
 
           <Input
             className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
-            placeholder="Location"
-            name="location"
+            placeholder="Building"
+            name="building"
             onChange={handleInputChange}
-            defaultValue={fieldUpdateDetails?.location}
+            defaultValue={pigUpdateDetails?.building}
           />
 
-          <Label className="text-primary-red my-2 block">Size</Label>
+          <Label className="text-primary-red my-2 block">Pen</Label>
 
           <Input
             className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
-            placeholder="Size (Area)"
-            name="field_size"
+            placeholder="Pen"
+            name="pen"
             onChange={handleInputChange}
-            defaultValue={fieldUpdateDetails?.field_size}
+            defaultValue={pigUpdateDetails?.pen}
           />
 
-          <Label className="text-primary-red my-2 block">Soil Type</Label>
+          <Label className="text-primary-red my-2 block">Assigned Farmer</Label>
 
           <Input
             className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
-            placeholder="Soil Type"
-            name="soil_type"
+            placeholder="Assigned Farmer"
+            name="assigned_farmer"
             onChange={handleInputChange}
-            defaultValue={fieldUpdateDetails?.soil_type}
-          />
-
-          <Label className="text-primary-red my-2 block">
-            Irrigation System
-          </Label>
-          <Input
-            className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
-            placeholder="Irrigation System"
-            name="irrigation_system"
-            onChange={handleInputChange}
-            defaultValue={fieldUpdateDetails?.irrigation_system}
+            defaultValue={pigUpdateDetails?.assigned_farmer}
           />
 
           <Label className="text-primary-red my-2 block">
-            Past Crop History
+            Short Description
           </Label>
           <Input
             className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
-            placeholder="Past Crop History"
-            name="crop_history"
+            placeholder="Short Description"
+            name="short_desc"
             onChange={handleInputChange}
-            defaultValue={fieldUpdateDetails?.crop_history}
+            defaultValue={pigUpdateDetails?.short_desc}
           />
 
           <div className="flex gap-2 justify-end items-center">
             <Button
-              onClick={() => setShowUpdateFormField(false)}
+              onClick={() => setShowUpdateFormPig(false)}
               className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-yellow text-primary-red hover:bg-primary-red hover:text-primary-yellow hover:border-primary-yellow"
             >
               Cancel

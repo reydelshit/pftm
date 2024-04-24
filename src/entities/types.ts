@@ -57,3 +57,15 @@ export type ScheduleTypes = {
   crops_name: string
   field_name: string
 }
+
+export type PigTypes = {
+  pig_id: number
+  pig_tag: string
+  assigned_farmer: string
+  building: string
+  pen: string
+
+  created_at: string
+  short_desc: string
+  user_id: string
+}

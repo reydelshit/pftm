@@ -27,19 +27,19 @@ export default function Sidebar() {
             to="/"
           >
             <GiPlantSeed className="text-md h-[1.5rem] w-[1.5rem]" />
-            Crops
+            SCHEDULE REPORTS
           </Link>
 
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
-              currentPath == '/manage-field'
+              currentPath == '/pig-management'
                 ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
                 : ''
             } `}
-            to="/manage-field"
+            to="/pig-management"
           >
             <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
-            Field
+            Pig Management
           </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
@@ -49,17 +49,19 @@ export default function Sidebar() {
             } `}
             to="/generate-schedule"
           >
-            <GrSchedules className="text-md h-[1.5rem] w-[1.5rem]" /> Schedule
+            <GrSchedules className="text-md h-[1.5rem] w-[1.5rem]" /> LIVE STOCK
+            REPORTS
           </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
-              currentPath == '/reporting'
+              currentPath == '/reports'
                 ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
                 : ''
             } `}
             to="/reports"
           >
-            <GrAnalytics className="text-md h-[1.5rem] w-[1.5rem]" /> Reports
+            <GrAnalytics className="text-md h-[1.5rem] w-[1.5rem]" /> LIVESTOCKS
+            SCHEDULE
           </Link>
         </div>
 
