@@ -39,7 +39,19 @@ export default function Sidebar() {
             to="/pig-management"
           >
             <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
-            Pig Management
+            PIG MANAGEMENT
+          </Link>
+
+          <Link
+            className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
+              currentPath == '/pig-buffs'
+                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                : ''
+            } `}
+            to="/pig-buffs"
+          >
+            <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
+            PIG BUFFS
           </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${

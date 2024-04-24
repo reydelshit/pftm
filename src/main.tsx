@@ -13,6 +13,7 @@ import Reports from './pages/Reports'
 import ScheduleGeneration from './pages/ScheduleGeneration'
 import Crops from './pages/Crops'
 import Register from './pages/Register'
+import PigsBuff from './pages/PigsBuff'
 
 const logoutUser = async () => {
   localStorage.removeItem('token')
@@ -30,8 +31,8 @@ const router = createBrowserRouter([
 
     children: [
       {
-        path: 'crops',
-        element: <Crops />,
+        path: 'pig-buffs',
+        element: <PigsBuff />,
       },
       {
         path: 'crops/:id',

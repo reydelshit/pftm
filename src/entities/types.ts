@@ -69,3 +69,11 @@ export type PigTypes = {
   short_desc: string
   user_id: string
 }
+
+export type PigBuffTypes = {
+  buff_id: number
+  buff_name: string
+  buff_type: string
+  created_at: string
+  user_id: string
+}
