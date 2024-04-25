@@ -14,13 +14,13 @@ export default function Sidebar() {
     window.location.reload()
   }
   return (
-    <div className="block w-[20rem] h-dvh bg-primary-yellow text-primary-red fixed z-10">
+    <div className="block w-[20rem] h-dvh bg-primary-color text-primary-secondary fixed z-10">
       <div className=" flex flex-col justify-between w-full h-[90%]">
         <div className="flex flex-col font-semibold px-[1rem] mt-[4rem] mb-2">
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/dashboard'
-                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
             to="/dashboard"
@@ -31,7 +31,7 @@ export default function Sidebar() {
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/pig-management'
-                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
             to="/pig-management"
@@ -43,7 +43,7 @@ export default function Sidebar() {
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/pig-buffs'
-                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
             to="/pig-buffs"
@@ -54,7 +54,7 @@ export default function Sidebar() {
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/generate-schedule'
-                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
             to="/generate-schedule"
@@ -65,7 +65,7 @@ export default function Sidebar() {
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/reports'
-                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
             to="/reports"
@@ -77,7 +77,7 @@ export default function Sidebar() {
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/assigned-farmer'
-                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
             to="/assigned-farmer"
@@ -91,7 +91,7 @@ export default function Sidebar() {
           {/* <WeatherApi /> */}
 
           <Button
-            className="bg-primary-yellow border-4 mt-[2rem] border-primary-red p-6 rounded-full w-[10rem] font-bold text-primary-red hover:bg-primary-red hover:text-primary-yellow transition-all duration-300 ease-in-out text-2xl"
+            className="bg-primary-color border-4 mt-[2rem] border-primary-secondary p-6 rounded-full w-[10rem] font-bold text-primary-secondary hover:bg-primary-secondary hover:text-primary-color transition-all duration-300 ease-in-out text-2xl"
             onClick={handleLogout}
           >
             Logout

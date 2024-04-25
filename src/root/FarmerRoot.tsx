@@ -42,7 +42,7 @@ export default function FarmerRoot() {
         </span>
         <IoMdNotificationsOutline
           onClick={openNotification}
-          className="text-[4rem] absolute right-5 top-5 cursor-pointer z-40 text-purple-600"
+          className="text-[4rem] absolute right-5 top-5 cursor-pointer z-40 text-primary-yellow"
         />
         {showNotification && (
           <div className="absolute right-14 top-24 border-2 w-[20rem] h-[20rem] z-50 bg-white rounded-xl flex items-center flex-col p-2">

@@ -84,24 +84,29 @@ export default function AddPigForm({
   }, [])
 
   return (
-    <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-red bg-opacity-90 flex justify-center items-center">
+    <div className="absolute w-[100%] h-full top-0 z-50 bg-white bg-opacity-90 flex justify-center items-center text-white">
       <form
         onSubmit={handleSubmit}
-        className="w-[40%] bg-primary-yellow p-4 rounded-lg"
+        className="w-[40%] bg-primary-color p-4 rounded-lg ml-[-5rem]"
       >
-        <h1 className="font-bold text-2xl text-primary-red py-4">ADD PIG</h1>
+        <h1 className="font-bold text-2xl text-primary-secbg-primary-secondary py-4">
+          ADD PIG
+        </h1>
         <Input
-          className="mb-2 h-[8rem] border-4 text-center border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white font-bold text-[5rem]"
+          className="mb-2 h-[8rem] border-4 text-center border-primary-secbg-primary-secondary p-6 rounded-full placeholder:text-primary-secbg-primary-secondary placeholder:text-xl text-white font-bold text-[5rem]"
           placeholder="Pig Tag Number"
           name="pig_tag"
-          required
+          requisecbg-primary-secondary
           value={parseInt(String(eartags)) + 1}
           onChange={handleInputChange}
         />
 
         <div className="flex items-center gap-4 w-full ">
-          <Select required onValueChange={(e: string) => handleBuilding(e)}>
-            <SelectTrigger className="w-full h-[4rem] bg-primary-red text-primary-yellow border-4 border-primary-yellow font-bold rounded-full">
+          <Select
+            requisecbg-primary-secondary
+            onValueChange={(e: string) => handleBuilding(e)}
+          >
+            <SelectTrigger className="w-full h-[4rem] bg-primary-secondary text-primary-color border-4 border-primary-color font-bold rounded-full">
               <SelectValue placeholder="Building.." />
             </SelectTrigger>
             <SelectContent>
@@ -114,16 +119,19 @@ export default function AddPigForm({
           </Select>
 
           <Input
-            className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+            className="mb-2 border-4 border-primary-secbg-primary-secondary p-6 rounded-full placeholder:text-primary-secondary placeholder:text-xl text-white"
             placeholder="Pen"
             name="pen"
-            required
+            requisecbg-primary-secondary
             onChange={handleInputChange}
           />
         </div>
 
-        <Select required onValueChange={(e: string) => handleSelectedFarmer(e)}>
-          <SelectTrigger className="w-full h-[4rem] bg-primary-red text-primary-yellow border-4 border-primary-yellow font-bold rounded-full">
+        <Select
+          requisecbg-primary-secondary
+          onValueChange={(e: string) => handleSelectedFarmer(e)}
+        >
+          <SelectTrigger className="w-full h-[4rem] bg-primary-secondary text-primary-color border-4 border-primary-color font-bold rounded-full">
             <SelectValue placeholder="Search farmer.." />
           </SelectTrigger>
           <SelectContent>
@@ -142,8 +150,11 @@ export default function AddPigForm({
           </SelectContent>
         </Select>
 
-        <Select required onValueChange={(e: string) => hanldePigType(e)}>
-          <SelectTrigger className="w-full h-[4rem] bg-primary-red text-primary-yellow border-4 border-primary-yellow font-bold rounded-full">
+        <Select
+          requisecbg-primary-secondary
+          onValueChange={(e: string) => hanldePigType(e)}
+        >
+          <SelectTrigger className="w-full h-[4rem] bg-primary-secondary text-primary-color border-4 border-primary-color font-bold rounded-full">
             <SelectValue placeholder="Pig Type" />
           </SelectTrigger>
           <SelectContent>
@@ -154,11 +165,13 @@ export default function AddPigForm({
 
         {pigType === 'Sow' && (
           <div className="flex items-start w-full flex-col">
-            <Label className="text-primary-red my-2 block">Date of Breed</Label>
+            <Label className="text-primary-secbg-primary-secondary my-2 block">
+              Date of Breed
+            </Label>
             <Input
-              className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+              className="mb-2 border-4 border-primary-secbg-primary-secondary p-6 rounded-full placeholder:text-primary-secbg-primary-secondary placeholder:text-xl text-white"
               name="date_breed"
-              required
+              requisecbg-primary-secondary
               type="date"
               onChange={handleInputChange}
             />
@@ -166,24 +179,24 @@ export default function AddPigForm({
         )}
 
         <Input
-          className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+          className="mb-2 border-4 border-primary-secbg-primary-secondary p-6 rounded-full placeholder:text-primary-secondary placeholder:text-xl text-white"
           placeholder="Short Description"
           name="short_desc"
-          required
+          requisecbg-primary-secondary
           onChange={handleInputChange}
         />
 
         <div className="flex gap-2 justify-end items-center">
           <Button
             onClick={() => setShowAddPig(!showAddPig)}
-            className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-yellow text-primary-red hover:bg-primary-red hover:text-primary-yellow hover:border-primary-yellow"
+            className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-color text-primary-secbg-primary-secondary hover:bg-primary-secondary hover:text-primary-color hover:border-primary-color"
           >
             Cancel
           </Button>
 
           <Button
             type="submit"
-            className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-red text-primary-yellow hover:bg-primary-yellow hover:text-primary-red hover:border-primary-red"
+            className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4  text-primary-color hover:bg-primary-color hover:text-primary-secondary bg-primary-secondary hover:border-primary-secbg-primary-secondary"
           >
             Save
           </Button>

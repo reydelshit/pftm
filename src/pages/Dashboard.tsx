@@ -69,13 +69,13 @@ export default function Dashboard() {
   return (
     <div className="w-full h-dvh flex items-start flex-col pl-[20rem] relative">
       <div className="my-[2.5rem] flex justify-between items-center w-full">
-        <h1 className="text-[5rem] font-semibold text-primary-yellow">
+        <h1 className="text-[5rem] font-semibold text-primary-color">
           DASHBOARD
         </h1>
       </div>
 
       <div className="w-full flex gap-4">
-        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-yellow text-white font-bold">
+        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-color text-white font-bold">
           <span className="block">NUMBER OF PIGS</span>
 
           <h1 className="text-[4rem] font-bold text-center">
@@ -83,19 +83,19 @@ export default function Dashboard() {
           </h1>
         </div>
 
-        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-yellow text-white font-bold">
+        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-color text-white font-bold">
           <span className="block">NUMBER OF PIGS BUFF</span>
 
           <h1 className="text-[4rem] font-bold text-center">{buffs.length}</h1>
         </div>
 
-        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-yellow text-white font-bold">
+        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-color text-white font-bold">
           <span className="block">NUMBER OF FARMERS</span>
 
           <h1 className="text-[4rem] font-bold text-center">{farmer.length}</h1>
         </div>
 
-        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-yellow text-white font-bold">
+        <div className="w-[22rem] p-4 h-[10rem] border-2 rounded-2xl bg-primary-color text-white font-bold">
           <span className="block">NUMBER OF SOW PIGS</span>
 
           <h1 className="text-[4rem] font-bold text-center">
@@ -104,23 +104,15 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="w-[100%] min-h-[50%] border-4 border-primary-yellow rounded-3xl p-4 my-[4rem] block">
+      <div className="w-[100%] min-h-[50%] border-4 border-primary-color rounded-3xl p-4 my-[4rem] block">
         <Table className="w-full ">
           <TableHeader>
-            <TableRow className="text-primary-yellow border-b-4 border-primary-yellow">
-              <TableHead className="text-primary-yellow text-xl">
-                hays
-              </TableHead>
-              <TableHead className="text-primary-yellow text-xl">
-                hays
-              </TableHead>
-              <TableHead className="text-primary-yellow text-xl">
-                hays
-              </TableHead>
+            <TableRow className="text-primary-color border-b-4 border-primary-color">
+              <TableHead className="text-primary-color text-xl">hays</TableHead>
+              <TableHead className="text-primary-color text-xl">hays</TableHead>
+              <TableHead className="text-primary-color text-xl">hays</TableHead>
 
-              <TableHead className="text-primary-yellow text-xl">
-                hays
-              </TableHead>
+              <TableHead className="text-primary-color text-xl">hays</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className="text-xl "></TableBody>

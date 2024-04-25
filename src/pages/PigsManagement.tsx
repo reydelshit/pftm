@@ -169,32 +169,29 @@ export default function PigsManagement() {
   return (
     <div className="w-full h-dvh flex items-start flex-col pl-[20rem] relative">
       <div className="my-[2.5rem] flex justify-between items-center w-full">
-        <h1 className="text-[5rem] font-semibold text-primary-yellow">
+        <h1 className="text-[5rem] font-semibold text-primary-color">
           PIG MANAGEMENT
         </h1>
       </div>
 
       <div className="flex gap-10 w-full h-full justify-around">
         <div className="w-full h-full flex justify-between items-start ">
-          <div className="w-full h-[95%] bg-primary-red rounded-2xl p-4 gap-2 flex justify-start items-center flex-col">
+          <div className="w-full h-[95%] bg-primary-secondary rounded-2xl p-4 gap-2 flex justify-start items-center flex-col">
             <div className="w-full justify-between flex">
               <div>
                 <Button
                   onClick={toggleSortOrder}
-                  className="rounded-full h-full border-4 border-primary-yellow bg-primary-red font-bold text-xl text-primary-yellow hover:bg-primary-yellow hover:text-primary-red hover:border-primary-yellow hover:border-4"
+                  className="rounded-full h-full border-4 border-primary-color bg-primary-secondary font-bold text-xl text-primary-color hover:bg-primary-color hover:text-primary-secondary hover:border-primary-color hover:border-4"
                 >
                   {sortOrder === 'asc' ? 'Sort Descending' : 'Sort Ascending'}
                 </Button>
               </div>
 
-              <ButtonStyle
-                background="yellow"
-                onCLick={() => setShowAddPig(!showAddPig)}
-              >
+              <ButtonStyle onCLick={() => setShowAddPig(!showAddPig)}>
                 Add Pig
               </ButtonStyle>
             </div>
-            <div className="w-[100%] min-h-[80%] border-4 border-primary-yellow rounded-3xl p-4">
+            <div className="w-[100%] min-h-[80%] border-4 border-primary-color rounded-3xl p-4">
               <PigManagementTable
                 sortedData={sortedData}
                 pigData={pigData}

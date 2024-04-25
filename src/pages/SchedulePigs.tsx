@@ -185,49 +185,46 @@ export default function SchedulePigs() {
   return (
     <div className="w-full h-dvh flex items-start flex-col pl-[20rem] relative">
       <div className="my-[2.5rem] flex justify-between items-center w-full">
-        <h1 className="text-[5rem] font-semibold text-primary-yellow">
+        <h1 className="text-[5rem] font-semibold text-primary-color">
           SET SCHEDULE
         </h1>
       </div>
 
       <div className="flex gap-10 w-full h-full justify-around">
         <div className="w-full h-full flex justify-between items-start ">
-          <div className="w-full h-[95%] bg-primary-red rounded-2xl p-4 gap-2 flex justify-start items-center flex-col">
+          <div className="w-full h-[95%] bg-primary-secondary rounded-2xl p-4 gap-2 flex justify-start items-center flex-col">
             <div className="w-full justify-between flex">
               <div>
                 <Button
                   onClick={toggleSortOrder}
-                  className="rounded-full h-full border-4 border-primary-yellow bg-primary-red font-bold text-xl text-primary-yellow hover:bg-primary-yellow hover:text-primary-red hover:border-primary-yellow hover:border-4"
+                  className="rounded-full h-full border-4 border-primary-color bg-primary-secondary font-bold text-xl text-primary-color hover:bg-primary-color hover:text-primary-secondary hover:border-primary-color hover:border-4"
                 >
                   {sortOrder === 'asc' ? 'Sort Descending' : 'Sort Ascending'}
                 </Button>
               </div>
 
-              <ButtonStyle
-                background="yellow"
-                onCLick={() => setShowAddSched(!showAddSched)}
-              >
+              <ButtonStyle onCLick={() => setShowAddSched(!showAddSched)}>
                 SET SCHEDULE
               </ButtonStyle>
             </div>
-            <div className="w-[100%] min-h-[80%] border-4 border-primary-yellow rounded-3xl p-4">
+            <div className="w-[100%] min-h-[80%] border-4 border-primary-color rounded-3xl p-4">
               <Table className="w-full ">
                 <TableHeader>
-                  <TableRow className="text-primary-yellow border-b-4 border-primary-yellow">
-                    <TableHead className="text-primary-yellow text-xl">
+                  <TableRow className="text-primary-color border-b-4 border-primary-color">
+                    <TableHead className="text-primary-color text-xl">
                       Sched ID.
                     </TableHead>
-                    <TableHead className="text-primary-yellow text-xl">
+                    <TableHead className="text-primary-color text-xl">
                       Schedule Name
                     </TableHead>
-                    <TableHead className="text-primary-yellow text-xl">
+                    <TableHead className="text-primary-color text-xl">
                       Pig Tag
                     </TableHead>
 
-                    <TableHead className="text-primary-yellow text-xl">
+                    <TableHead className="text-primary-color text-xl">
                       Schedule Date
                     </TableHead>
-                    <TableHead className="text-primary-yellow text-xl "></TableHead>
+                    <TableHead className="text-primary-color text-xl "></TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody className="text-xl ">
@@ -235,7 +232,7 @@ export default function SchedulePigs() {
                     sortedData.map((sched, index) => (
                       <TableRow
                         key={index}
-                        className="text-primary-yellow border-b-4 border-primary-yellow"
+                        className="text-primary-color border-b-4 border-primary-color"
                       >
                         {/* <TableCell>{field.sched_id}</TableCell> */}
                         <TableCell>{sched.sched_id}</TableCell>
@@ -250,18 +247,18 @@ export default function SchedulePigs() {
                         <TableCell className="flex gap-2">
                           {/* <FaPencilAlt
                             onClick={() => handleUpdateForm(sched.sched_id)}
-                            className="p-2 text-[2.5rem] text-primary-yellow cursor-pointer"
+                            className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
                           /> */}
 
                           <MdDelete
                             onClick={() => handleDeleteSched(sched.sched_id)}
-                            className="p-2 text-[2.5rem] text-primary-yellow cursor-pointer"
+                            className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
                           />
                         </TableCell>
                       </TableRow>
                     ))
                   ) : (
-                    <TableRow className="text-primary-yellow">
+                    <TableRow className="text-primary-color">
                       <TableCell colSpan={8} className="text-center">
                         No sched found or loading...
                       </TableCell>
@@ -275,19 +272,21 @@ export default function SchedulePigs() {
       </div>
 
       {showAddSched && (
-        <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-red bg-opacity-90 flex justify-center items-center">
+        <div className="absolute w-[100%] h-full top-0 z-50 bg-white bg-opacity-90 flex justify-center items-center">
           <form
             onSubmit={handleSubmit}
-            className="w-[40%] bg-primary-yellow p-4 rounded-lg"
+            className="w-[40%] bg-primary-color p-4 rounded-lg ml-[-15rem]"
           >
-            <h1 className="font-bold text-2xl text-primary-red py-4">
+            <h1 className="font-bold text-2xl text-primary-secondary py-4">
               SET SCHEDULE
             </h1>
 
             <div className="flex items-start w-full flex-col">
-              <Label className="text-primary-red my-2 block">Sched Name</Label>
+              <Label className="text-primary-secondary my-2 block">
+                Sched Name
+              </Label>
               <Input
-                className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+                className="mb-2 border-4 border-primary-secondary p-6 rounded-full placeholder:text-primary-secondary placeholder:text-xl text-white"
                 name="sched_name"
                 required
                 onChange={handleInputChange}
@@ -295,7 +294,7 @@ export default function SchedulePigs() {
             </div>
 
             <Select required onValueChange={(e: string) => handleSchedPigs(e)}>
-              <SelectTrigger className="w-full h-[4rem] bg-primary-red text-primary-yellow border-4 border-primary-yellow font-bold rounded-full">
+              <SelectTrigger className="w-full h-[4rem] bg-primary-secondary text-primary-color border-4 border-primary-color font-bold rounded-full">
                 <SelectValue placeholder="Search pigs.." />
               </SelectTrigger>
               <SelectContent>
@@ -315,11 +314,11 @@ export default function SchedulePigs() {
             </Select>
 
             <div className="flex items-start w-full flex-col">
-              <Label className="text-primary-red my-2 block">
+              <Label className="text-primary-secondary my-2 block">
                 Schedule Date
               </Label>
               <Input
-                className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+                className="mb-2 border-4 border-primary-secondary p-6 rounded-full placeholder:text-primary-secondary placeholder:text-xl text-white"
                 name="sched_date"
                 required
                 type="datetime-local"
@@ -330,14 +329,14 @@ export default function SchedulePigs() {
             <div className="flex gap-2 justify-end items-center">
               <Button
                 onClick={() => setShowAddSched(!showAddSched)}
-                className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-yellow text-primary-red hover:bg-primary-red hover:text-primary-yellow hover:border-primary-yellow"
+                className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-color text-primary-secondary hover:bg-primary-secondary hover:text-primary-color hover:border-primary-color"
               >
                 Cancel
               </Button>
 
               <Button
                 type="submit"
-                className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-red text-primary-yellow hover:bg-primary-yellow hover:text-primary-red hover:border-primary-red"
+                className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-secondary text-primary-color hover:bg-primary-color hover:text-primary-secondary hover:border-primary-secondary"
               >
                 Save
               </Button>
@@ -347,27 +346,27 @@ export default function SchedulePigs() {
       )}
 
       {/* {showUpdateFormSched && (
-        <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-red bg-opacity-90 flex justify-center items-center">
+        <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-secondary bg-opacity-90 flex justify-center items-center">
           <div className="w-[80%] flex justify-center gap-4 ml-[-15rem] p-5">
             <form
               onSubmit={handleUpdateSubmit}
-              className="w-[50%] bg-primary-yellow p-8 rounded-lg"
+              className="w-[50%] bg-primary-color p-8 rounded-lg"
             >
-              <h1 className="font-bold text-2xl text-primary-red py-4">
+              <h1 className="font-bold text-2xl text-primary-secondary py-4">
                 UPDATE SOIL
               </h1>
-              <Label className="text-primary-red my-2 block">Buff Name</Label>
+              <Label className="text-primary-secondary my-2 block">Buff Name</Label>
               <Input
-                className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
+                className="mb-2 border-4 border-primary-secondary p-6 rounded-full placeholder:text-primary-secondary placeholder:text-xl text-primary-secondary"
                 name="buff_name"
                 onChange={handleInputChange}
                 defaultValue={buffUpdateDetails?.buff_name}
               />
 
-              <Label className="text-primary-red my-2 block">Buff Type</Label>
+              <Label className="text-primary-secondary my-2 block">Buff Type</Label>
 
               <Input
-                className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
+                className="mb-2 border-4 border-primary-secondary p-6 rounded-full placeholder:text-primary-secondary placeholder:text-xl text-primary-secondary"
                 name="buff_type"
                 onChange={handleInputChange}
                 defaultValue={buffUpdateDetails?.buff_type}
@@ -376,14 +375,14 @@ export default function SchedulePigs() {
               <div className="flex gap-2 justify-end items-center">
                 <Button
                   onClick={() => setShowUpdateFormBuff(false)}
-                  className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-yellow text-primary-red hover:bg-primary-red hover:text-primary-yellow hover:border-primary-yellow"
+                  className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-color text-primary-secondary hover:bg-primary-secondary hover:text-primary-color hover:border-primary-color"
                 >
                   Cancel
                 </Button>
 
                 <Button
                   type="submit"
-                  className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-red text-primary-yellow hover:bg-primary-yellow hover:text-primary-red hover:border-primary-red"
+                  className="font-bold text-xl p-6 w-[8rem] transition-all duration-300 ease-in-out hover:border-4 bg-primary-secondary text-primary-color hover:bg-primary-color hover:text-primary-secondary hover:border-primary-secondary"
                 >
                   Update
                 </Button>

@@ -28,32 +28,28 @@ export default function PigManagementTable({
   return (
     <Table className="w-full ">
       <TableHeader>
-        <TableRow className="text-primary-yellow border-b-4 border-primary-yellow">
-          <TableHead className="text-primary-yellow text-xl">PIG NO.</TableHead>
-          <TableHead className="text-primary-yellow text-xl">
-            Building
-          </TableHead>
-          <TableHead className="text-primary-yellow text-xl">Pen</TableHead>
+        <TableRow className="text-primary-color border-b-4 border-primary-color">
+          <TableHead className="text-primary-color text-xl">PIG NO.</TableHead>
+          <TableHead className="text-primary-color text-xl">Building</TableHead>
+          <TableHead className="text-primary-color text-xl">Pen</TableHead>
 
-          <TableHead className="text-primary-yellow text-xl">
+          <TableHead className="text-primary-color text-xl">
             Assigned Farmer
           </TableHead>
-          <TableHead className="text-primary-yellow text-xl">
-            Pig Type
-          </TableHead>
+          <TableHead className="text-primary-color text-xl">Pig Type</TableHead>
 
-          <TableHead className="text-primary-yellow text-xl">
+          <TableHead className="text-primary-color text-xl">
             Breeding Date
           </TableHead>
 
-          <TableHead className="text-primary-yellow text-xl">
+          <TableHead className="text-primary-color text-xl">
             Farrowing Schedule
           </TableHead>
 
-          <TableHead className="text-primary-yellow text-xl">
+          <TableHead className="text-primary-color text-xl">
             Created At
           </TableHead>
-          <TableHead className="text-primary-yellow text-xl w-[10rem]"></TableHead>
+          <TableHead className="text-primary-color text-xl w-[10rem]"></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody className="text-xl ">
@@ -61,7 +57,7 @@ export default function PigManagementTable({
           sortedData.map((pig, index) => (
             <TableRow
               key={index}
-              className="text-primary-yellow border-b-4 border-primary-yellow"
+              className="text-primary-color border-b-4 border-primary-color"
             >
               {/* <TableCell>{field.field_id}</TableCell> */}
               <TableCell>P{pig.pig_tag}</TableCell>
@@ -87,18 +83,18 @@ export default function PigManagementTable({
               <TableCell className="flex gap-2">
                 <FaPencilAlt
                   onClick={() => handleUpdateForm(pig.pig_id)}
-                  className="p-2 text-[2.5rem] text-primary-yellow cursor-pointer"
+                  className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
                 />
 
                 <MdDelete
                   onClick={() => handleDeletePig(pig.pig_id)}
-                  className="p-2 text-[2.5rem] text-primary-yellow cursor-pointer"
+                  className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
                 />
               </TableCell>
             </TableRow>
           ))
         ) : (
-          <TableRow className="text-primary-yellow">
+          <TableRow className="text-primary-color">
             <TableCell colSpan={8} className="text-center">
               No field found or loading...
             </TableCell>

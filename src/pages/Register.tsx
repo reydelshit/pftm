@@ -79,7 +79,7 @@ export default function Register() {
 
   return (
     <div className="w-dvw h-dvh flex justify-between items-center flex-row ">
-      <div className="bg-primary-red text-primary-yellow shadow-slate-400 w-[40%] px-[5rem] h-full flex justify-center items-center flex-col p-4 rounded-md">
+      <div className="bg-primary-secondary text-primary-color shadow-slate-400 w-[40%] px-[5rem] h-full flex justify-center items-center flex-col p-4 rounded-md">
         <div className="flex justify-start items-start w-full my-[2rem]">
           <a href="/" className="text-[1.2rem] underline">
             <GoBackBtn />
@@ -92,21 +92,21 @@ export default function Register() {
 
         <Input
           onChange={handleChange}
-          className="mb-8 border-4 text-2xl border-primary-yellow rounded-full p-8 w-full text-primary-yellow focus:outline-none placeholder:text-primary-yellow placeholder:text-2xl placeholder:font-semibold"
+          className="mb-8 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
           placeholder="Fullname"
           name="name"
           required
         />
         <Input
           onChange={handleChange}
-          className="mb-8 border-4 text-2xl border-primary-yellow rounded-full p-8 w-full text-primary-yellow focus:outline-none placeholder:text-primary-yellow placeholder:text-2xl placeholder:font-semibold"
+          className="mb-8 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
           placeholder="Username"
           name="username"
           required
         />
 
         <Input
-          className="mb-8 border-4 text-2xl border-primary-yellow rounded-full p-8 w-full text-primary-yellow focus:outline-none placeholder:text-primary-yellow placeholder:text-2xl placeholder:font-semibold"
+          className="mb-8 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
           type="password"
           onChange={handleChange}
           name="password"
@@ -115,7 +115,7 @@ export default function Register() {
         />
 
         <Input
-          className="mb-2 border-4 text-2xl border-primary-yellow rounded-full p-8 w-full text-primary-yellow focus:outline-none placeholder:text-primary-yellow placeholder:text-2xl placeholder:font-semibold"
+          className="mb-2 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
           type="password"
           onChange={handleCheckPassword}
           name="password"
@@ -129,9 +129,7 @@ export default function Register() {
           </p>
         )}
 
-        <ButtonStyle background="yellow" onCLick={handleRegister}>
-          Register
-        </ButtonStyle>
+        <ButtonStyle onCLick={handleRegister}>Register</ButtonStyle>
 
         {successfulLogin && (
           <div className="my-4 bg-green-500 p-2 text-white rounded-md">
@@ -141,7 +139,7 @@ export default function Register() {
         )}
       </div>
 
-      <div className="w-[60%] bg-primary-yellow h-full items-center flex justify-center relative">
+      <div className="w-[60%] bg-primary-color h-full items-center flex justify-center relative">
         <img className="w-[80%] absolute" src={Farmer} alt="farmer" />
 
         <div className="w-full h-full flex justify-end items-center">
