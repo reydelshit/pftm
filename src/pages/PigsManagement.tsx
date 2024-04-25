@@ -20,7 +20,7 @@ export default function PigsManagement() {
   const [latestEartag, setLatestEartag] = useState(0)
   const [building, setBuilding] = useState('' as string)
   const [pigType, setPigType] = useState('' as string)
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchPigs = () => {
     axios

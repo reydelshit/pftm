@@ -15,7 +15,7 @@ export default function Dashboard() {
   const [buffs, setBuffs] = useState<PigBuffTypes[]>([])
   const [farmer, setFarmer] = useState<AssignedFarmerTypes[]>([])
 
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchPigs = () => {
     axios

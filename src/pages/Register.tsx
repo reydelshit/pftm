@@ -5,11 +5,12 @@ import Farmer from '@/assets/farmer.png'
 import { Navigate, useNavigate } from 'react-router-dom'
 import ButtonStyle from '@/lib/ButtonStyle'
 import GoBackBtn from '@/lib/GoBackBtn'
+import { Button } from '@/components/ui/button'
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>
 
 export default function Register() {
-  const cmhsLoginToken = localStorage.getItem('cmhs_token')
+  const cmhsLoginToken = localStorage.getItem('pftm_token')
 
   if (cmhsLoginToken) {
     return <Navigate to="/" replace={true} />
@@ -78,35 +79,35 @@ export default function Register() {
   }, [successfulLogin])
 
   return (
-    <div className="w-dvw h-dvh flex justify-between items-center flex-row ">
-      <div className="bg-primary-secondary text-primary-color shadow-slate-400 w-[40%] px-[5rem] h-full flex justify-center items-center flex-col p-4 rounded-md">
+    <div className="w-dvw h-dvh flex justify-center items-center flex-row bg-primary-color">
+      <div className=" text-primary-secondary shadow-slate-400 w-[40%] px-[5rem] h-full flex justify-center items-center flex-col p-4 rounded-md">
         <div className="flex justify-start items-start w-full my-[2rem]">
           <a href="/" className="text-[1.2rem] underline">
             <GoBackBtn />
           </a>
         </div>
 
-        <h1 className="mb-[5rem] font-semibold text-3xl">
-          CROP MANAGEMENT AND HARVESTING SCHEDULE SYSTEM
+        <h1 className="mb-[5rem] font-semibold text-3xl uppercase">
+          Pig Farmer Task Management System
         </h1>
 
         <Input
           onChange={handleChange}
-          className="mb-8 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
+          className="mb-8 border-4 text-2xl border-primary-secondtext-primary-secondary rounded-full p-8 w-full text-primary-secondary focus:outline-none placeholder:text-primary-secondary placeholder:text-2xl placeholder:font-semibold"
           placeholder="Fullname"
           name="name"
           required
         />
         <Input
           onChange={handleChange}
-          className="mb-8 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
+          className="mb-8 border-4 text-2xl border-primary-secondtext-primary-secondary rounded-full p-8 w-full text-primary-secondary focus:outline-none placeholder:text-primary-secondary placeholder:text-2xl placeholder:font-semibold"
           placeholder="Username"
           name="username"
           required
         />
 
         <Input
-          className="mb-8 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
+          className="mb-8 border-4 text-2xl border-primary-secondtext-primary-secondary rounded-full p-8 w-full text-primary-secondary focus:outline-none placeholder:text-primary-secondary placeholder:text-2xl placeholder:font-semibold"
           type="password"
           onChange={handleChange}
           name="password"
@@ -115,7 +116,7 @@ export default function Register() {
         />
 
         <Input
-          className="mb-2 border-4 text-2xl border-primary-color rounded-full p-8 w-full text-primary-color focus:outline-none placeholder:text-primary-color placeholder:text-2xl placeholder:font-semibold"
+          className="mb-2 border-4 text-2xl border-primary-secondtext-primary-secondary rounded-full p-8 w-full text-primary-secondary focus:outline-none placeholder:text-primary-secondary placeholder:text-2xl placeholder:font-semibold"
           type="password"
           onChange={handleCheckPassword}
           name="password"
@@ -129,7 +130,12 @@ export default function Register() {
           </p>
         )}
 
-        <ButtonStyle onCLick={handleRegister}>Register</ButtonStyle>
+        <Button
+          className="w-[15rem] h-[3.5rem] bg-primary-secondary  text-primary-color font-bold text-[1.5rem] hover:text-primary-secondary hover:bg-primary-color hover:border-4 hover:border-primary-secondary"
+          onClick={handleRegister}
+        >
+          Register
+        </Button>
 
         {successfulLogin && (
           <div className="my-4 bg-green-500 p-2 text-white rounded-md">
@@ -137,14 +143,6 @@ export default function Register() {
             <span className="font-bold">{seconds}</span> seconds
           </div>
         )}
-      </div>
-
-      <div className="w-[60%] bg-primary-color h-full items-center flex justify-center relative">
-        <img className="w-[80%] absolute" src={Farmer} alt="farmer" />
-
-        <div className="w-full h-full flex justify-end items-center">
-          <div className="bg-[#6895D2] w-[50%] h-[80%]"></div>
-        </div>
       </div>
     </div>
   )

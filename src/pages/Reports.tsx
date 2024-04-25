@@ -87,7 +87,7 @@ export default function Reports() {
   const [fieldDetails, setFieldDetails] = useState<FieldTypes[]>([])
 
   const [responseData, setResponseData] = useState<ResponseType[]>([])
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchCropsField = () => {
     axios

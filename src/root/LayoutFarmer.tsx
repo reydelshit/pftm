@@ -5,8 +5,8 @@ export default function LayoutFarmer({
 }: {
   children: React.ReactNode
 }) {
-  const cmhsLoginToken = localStorage.getItem('cmhs_token')
-  const accountType = localStorage.getItem('cmhs_account_type')
+  const cmhsLoginToken = localStorage.getItem('pftm_token')
+  const accountType = localStorage.getItem('pftm_account_type')
 
   if (accountType === 'qa' && cmhsLoginToken) {
     return <Navigate to="/qa" replace={true} />

@@ -11,7 +11,7 @@ export default function FarmerRoot() {
   const location = useLocation()
   const [showNotification, setShowNotification] = useState(false)
   const [notification, setNotification] = useState<NotificationTypes[]>([])
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchNotifications = () => {
     axios
@@ -42,7 +42,7 @@ export default function FarmerRoot() {
         </span>
         <IoMdNotificationsOutline
           onClick={openNotification}
-          className="text-[4rem] absolute right-5 top-5 cursor-pointer z-40 text-primary-yellow"
+          className="text-[4rem] absolute right-5 top-5 cursor-pointer z-40 text-primary-color"
         />
         {showNotification && (
           <div className="absolute right-14 top-24 border-2 w-[20rem] h-[20rem] z-50 bg-white rounded-xl flex items-center flex-col p-2">
@@ -51,7 +51,7 @@ export default function FarmerRoot() {
                 {notification.map((notif, index) => (
                   <div
                     key={index}
-                    className="w-full h-20 flex items-center justify-between px-2 bg-primary-yellow text-white rounded-md"
+                    className="w-full h-20 flex items-center justify-between px-2 bg-primary-color text-white rounded-md"
                   >
                     {notif.remarks === 'today' ? (
                       <p className="font-semibold">

@@ -41,7 +41,7 @@ export default function AddPigForm({
 
   const [eartags, setEartags] = useState(0)
 
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchPigs = () => {
     axios

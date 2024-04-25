@@ -37,7 +37,7 @@ export default function PigsBuff() {
 
   const [buffType, setBuffType] = useState('')
 
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchPigsBuff = () => {
     axios

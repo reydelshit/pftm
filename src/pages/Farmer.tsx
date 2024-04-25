@@ -28,7 +28,7 @@ export default function Farmer() {
     useState<AssignedFarmerTypes | null>(null)
   const [farmerID, setFarmerID] = useState(0)
 
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchFarmer = () => {
     axios

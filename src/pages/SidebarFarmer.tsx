@@ -9,8 +9,8 @@ export default function Sidebar() {
   const currentPath = useLocation().pathname
 
   const handleLogout = () => {
-    localStorage.removeItem('cmhs_token')
-    localStorage.removeItem('cmhs_account_type')
+    localStorage.removeItem('pftm_token')
+    localStorage.removeItem('pftm_account_type')
     window.location.reload()
   }
   return (

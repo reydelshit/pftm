@@ -41,7 +41,7 @@ export default function SchedulePigs() {
   const [selectedPigs, setSelectedPigs] = useState('')
   const [searchPigs, setSearchPigs] = useState('')
 
-  const user_id = localStorage.getItem('cmhs_token')
+  const user_id = localStorage.getItem('pftm_token')
 
   const fetchPigs = () => {
     axios
