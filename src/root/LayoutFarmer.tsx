@@ -5,18 +5,12 @@ export default function LayoutFarmer({
 }: {
   children: React.ReactNode
 }) {
-  const cmhsLoginToken = localStorage.getItem('pftm_token')
-  const accountType = localStorage.getItem('pftm_account_type')
-
-  if (accountType === 'qa' && cmhsLoginToken) {
-    return <Navigate to="/qa" replace={true} />
-  }
-
-  if (accountType === 'farmer' && cmhsLoginToken) {
-    return <div>{children}</div>
-  }
-
-  if (!accountType || !cmhsLoginToken) {
+  const pftmToken = localStorage.getItem('pftm_token')
+  if (!pftmToken) {
     return <Navigate to="/login" replace={true} />
+  }
+
+  if (pftmToken) {
+    return <div>{children}</div>
   }
 }

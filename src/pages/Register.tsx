@@ -41,7 +41,6 @@ export default function Register() {
     axios
       .post(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/login.php`, {
         ...credentials,
-        account_type: 'farmer',
       })
       .then((res: any) => {
         console.log(res.data, 'login successfully')

@@ -43,7 +43,6 @@ export default function Login() {
         console.log(res.data)
         if (res.data && res.data.length > 0) {
           localStorage.setItem('pftm_token', res.data[0].user_id)
-          localStorage.setItem('pftm_account_type', res.data[0].account_type)
           window.location.href = '/'
         } else {
           setErrorInput('Invalid username or password')
