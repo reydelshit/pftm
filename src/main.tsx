@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import FarmerRoot from './root/FarmerRoot'
 import LayoutFarmer from './root/LayoutFarmer'
 
 import Login from './Login'
@@ -13,7 +12,7 @@ import PigsBuff from './pages/PigsBuff'
 import PigManagement from './pages/PigsManagement'
 import Register from './pages/Register'
 import SchedulePigs from './pages/SchedulePigs'
-import Dashboard from './pages/Dashboard'
+import Root from './root/Root'
 
 const logoutUser = async () => {
   localStorage.removeItem('token')
@@ -24,16 +23,12 @@ const router = createBrowserRouter([
     path: '/',
     element: (
       <LayoutFarmer>
-        <FarmerRoot />
+        <Root />
       </LayoutFarmer>
     ),
     errorElement: <div>Not found</div>,
 
     children: [
-      {
-        path: 'dashboard',
-        element: <Dashboard />,
-      },
       {
         path: 'pig-buffs',
         element: <PigsBuff />,

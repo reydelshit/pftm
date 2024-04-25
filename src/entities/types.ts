@@ -39,10 +39,10 @@ export type SchedulePigsTypes = {
 export type AssignedFarmerTypes = {
   farmer_id: number
   farmer_name: string
-  no_assigned_pigs: number
 
   created_at: string
   user_id: string
+  number_assigned: number
 }
 
 export type NotificationTypes = {

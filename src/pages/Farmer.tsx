@@ -202,7 +202,7 @@ export default function Farmer() {
                         <TableCell>{farm.farmer_id}</TableCell>
                         <TableCell>{farm.farmer_name}</TableCell>
 
-                        <TableCell>{farm.no_assigned_pigs}</TableCell>
+                        <TableCell>{farm.number_assigned}</TableCell>
 
                         <TableCell>
                           {moment(farm.created_at).format('ll')}

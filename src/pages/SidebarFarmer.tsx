@@ -19,11 +19,11 @@ export default function Sidebar() {
         <div className="flex flex-col font-semibold px-[1rem] mt-[4rem] mb-2">
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
-              currentPath == '/dashboard'
+              currentPath == '/'
                 ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
             } `}
-            to="/dashboard"
+            to="/"
           >
             <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
             DASHBOARD

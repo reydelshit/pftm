@@ -1,4 +1,5 @@
 import { NotificationTypes } from '@/entities/types'
+import Dashboard from '@/pages/Dashboard'
 import PigsManagement from '@/pages/PigsManagement'
 import Sidebar from '@/pages/SidebarFarmer'
 import axios from 'axios'
@@ -7,7 +8,7 @@ import { useState } from 'react'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { Outlet, useLocation } from 'react-router-dom'
 
-export default function FarmerRoot() {
+export default function Root() {
   const location = useLocation()
   const [showNotification, setShowNotification] = useState(false)
   const [notification, setNotification] = useState<NotificationTypes[]>([])
@@ -81,7 +82,7 @@ export default function FarmerRoot() {
           </div>
         )}
 
-        {location.pathname === '/' ? <PigsManagement /> : <Outlet />}
+        {location.pathname === '/' ? <Dashboard /> : <Outlet />}
       </div>
     </div>
   )
