@@ -16,6 +16,7 @@ export default function PigsManagement() {
     null,
   )
   const [fieldUpdateID, setFieldUpdateID] = useState(0)
+  const [selectedFarmer, setSelectedFarmer] = useState('')
 
   const [building, setBuilding] = useState('' as string)
 
@@ -40,6 +41,10 @@ export default function PigsManagement() {
     setBuilding(e)
   }
 
+  const handleSelectedFarmer = (e: string) => {
+    setSelectedFarmer(e)
+  }
+
   useEffect(() => {
     fetchPigs()
   }, [])
@@ -53,6 +58,7 @@ export default function PigsManagement() {
         },
         ...pigDetails,
         building: building,
+        assigned_farmer: selectedFarmer,
         user_id: user_id,
       })
       .then((res) => {
@@ -197,6 +203,7 @@ export default function PigsManagement() {
           handleSubmit={handleSubmit}
           setShowAddPig={setShowAddPig}
           showAddPig={showAddPig}
+          handleSelectedFarmer={handleSelectedFarmer}
         />
       )}
 

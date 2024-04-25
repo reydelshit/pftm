@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/table'
 
 import { PigTypes, SchedulePigsTypes } from '@/entities/types'
-import ButtonStyle from '@/lib/ButtonStyle'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
@@ -91,12 +90,12 @@ export default function LivestockReports() {
                 </Button>
               </div>
 
-              <ButtonStyle
+              {/* <ButtonStyle
                 background="yellow"
                 onCLick={() => setShowAddSched(!showAddSched)}
               >
                 Add Buff
-              </ButtonStyle>
+              </ButtonStyle> */}
             </div>
             <div className="w-[100%] min-h-[80%] border-4 border-primary-yellow rounded-3xl p-4">
               <Table className="w-full ">

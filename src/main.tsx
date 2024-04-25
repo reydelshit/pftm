@@ -7,6 +7,7 @@ import FarmerRoot from './root/FarmerRoot'
 import LayoutFarmer from './root/LayoutFarmer'
 
 import Login from './Login'
+import Farmer from './pages/Farmer'
 import LivestockReports from './pages/LivestockReports'
 import PigsBuff from './pages/PigsBuff'
 import PigManagement from './pages/PigsManagement'
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
       {
         path: 'generate-schedule',
         element: <SchedulePigs />,
+      },
+
+      {
+        path: 'assigned-farmer',
+        element: <Farmer />,
       },
     ],
   },

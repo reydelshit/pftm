@@ -7,6 +7,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { AssignedFarmerTypes } from '@/entities/types'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 type AddFieldFomProps = {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
@@ -15,6 +18,7 @@ type AddFieldFomProps = {
   setShowAddPig: (e: boolean) => void
 
   handleBuilding: (e: string) => void
+  handleSelectedFarmer: (e: string) => void
 }
 
 export default function AddPigForm({
@@ -22,9 +26,33 @@ export default function AddPigForm({
   handleInputChange,
   showAddPig,
   setShowAddPig,
-
+  handleSelectedFarmer,
   handleBuilding,
 }: AddFieldFomProps) {
+  const [farmer, setFarmer] = useState<AssignedFarmerTypes[]>([])
+  const [searchFarmer, setSearchFarmer] = useState('')
+
+  const user_id = localStorage.getItem('cmhs_token')
+
+  const fetchFarmer = () => {
+    axios
+      .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/farmer.php`, {
+        params: {
+          user_id: user_id,
+        },
+      })
+      .then((res) => {
+        if (res.data) {
+          console.log(res.data)
+          setFarmer(res.data)
+        }
+      })
+  }
+
+  useEffect(() => {
+    fetchFarmer()
+  }, [])
+
   return (
     <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-red bg-opacity-90 flex justify-center items-center">
       <form
@@ -63,13 +91,25 @@ export default function AddPigForm({
           />
         </div>
 
-        <Input
-          className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
-          placeholder="Assigned Farmer"
-          name="assigned_farmer"
-          required
-          onChange={handleInputChange}
-        />
+        <Select required onValueChange={(e: string) => handleSelectedFarmer(e)}>
+          <SelectTrigger className="w-full h-[4rem] bg-primary-red text-primary-yellow border-4 border-primary-yellow font-bold rounded-full">
+            <SelectValue placeholder="Search farmer.." />
+          </SelectTrigger>
+          <SelectContent>
+            <Input
+              onChange={(e) => setSearchFarmer(e.target.value)}
+              placeholder="search farmer"
+            />
+
+            {farmer
+              .filter((farm) => farm.farmer_name.includes(searchFarmer))
+              .map((farm, index) => (
+                <SelectItem key={index} value={String(farm.farmer_name)}>
+                  {farm.farmer_name}
+                </SelectItem>
+              ))}
+          </SelectContent>
+        </Select>
         <Input
           className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
           placeholder="Short Description"

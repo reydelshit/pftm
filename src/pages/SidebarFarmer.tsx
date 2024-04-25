@@ -75,6 +75,18 @@ export default function Sidebar() {
             <GrAnalytics className="text-md h-[1.5rem] w-[1.5rem]" /> LIVESTOCKS
             REPORTS
           </Link>
+
+          <Link
+            className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
+              currentPath == '/assigned-farmer'
+                ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
+                : ''
+            } `}
+            to="/assigned-farmer"
+          >
+            <GrAnalytics className="text-md h-[1.5rem] w-[1.5rem]" />
+            FARMERS
+          </Link>
         </div>
 
         <div className="flex justify-center flex-col items-center mt-[2rem]">
