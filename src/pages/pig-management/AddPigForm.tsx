@@ -22,6 +22,7 @@ type AddFieldFomProps = {
   handleSelectedFarmer: (e: string) => void
   hanldePigType: (e: string) => void
   pigType: string
+  setLatestEartag: (e: number) => void
 }
 
 export default function AddPigForm({
@@ -33,11 +34,34 @@ export default function AddPigForm({
   handleBuilding,
   hanldePigType,
   pigType,
+  setLatestEartag,
 }: AddFieldFomProps) {
   const [farmer, setFarmer] = useState<AssignedFarmerTypes[]>([])
   const [searchFarmer, setSearchFarmer] = useState('')
 
+  const [eartags, setEartags] = useState(0)
+
   const user_id = localStorage.getItem('cmhs_token')
+
+  const fetchPigs = () => {
+    axios
+      .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
+        params: {
+          user_id: user_id,
+          latest_eartag: true,
+        },
+      })
+      .then((res) => {
+        if (res.data) {
+          console.log(res.data)
+          setEartags(res.data[0].latest_eartag)
+
+          if (res.data[0].latest_eartag) {
+            setLatestEartag(parseInt(String(res.data[0].latest_eartag)) + 1)
+          }
+        }
+      })
+  }
 
   const fetchFarmer = () => {
     axios
@@ -56,6 +80,7 @@ export default function AddPigForm({
 
   useEffect(() => {
     fetchFarmer()
+    fetchPigs()
   }, [])
 
   return (
@@ -66,10 +91,11 @@ export default function AddPigForm({
       >
         <h1 className="font-bold text-2xl text-primary-red py-4">ADD PIG</h1>
         <Input
-          className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+          className="mb-2 h-[8rem] border-4 text-center border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white font-bold text-[5rem]"
           placeholder="Pig Tag Number"
           name="pig_tag"
           required
+          value={parseInt(String(eartags)) + 1}
           onChange={handleInputChange}
         />
 
@@ -133,7 +159,7 @@ export default function AddPigForm({
               className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
               name="date_breed"
               required
-              type="datetime-local"
+              type="date"
               onChange={handleInputChange}
             />
           </div>

@@ -44,3 +44,10 @@ export type AssignedFarmerTypes = {
   created_at: string
   user_id: string
 }
+
+export type NotificationTypes = {
+  farrowing_date: string
+  pig_tag: string
+  date_breed: string
+  remarks: string
+}

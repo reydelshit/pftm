@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { FieldTypes } from '@/entities/types'
+
 import ButtonStyle from '@/lib/ButtonStyle'
 import {
   Document,

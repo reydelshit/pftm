@@ -64,7 +64,7 @@ export default function PigManagementTable({
               className="text-primary-yellow border-b-4 border-primary-yellow"
             >
               {/* <TableCell>{field.field_id}</TableCell> */}
-              <TableCell>{pig.pig_tag}</TableCell>
+              <TableCell>P{pig.pig_tag}</TableCell>
               <TableCell>{pig.building}</TableCell>
 
               <TableCell>{pig.pen}</TableCell>
@@ -82,7 +82,7 @@ export default function PigManagementTable({
                   : 'n/a'}
               </TableCell>
 
-              <TableCell>{pig.created_at}</TableCell>
+              <TableCell>{moment(pig.created_at).format('ll')}</TableCell>
 
               <TableCell className="flex gap-2">
                 <FaPencilAlt

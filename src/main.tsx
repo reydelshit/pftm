@@ -13,6 +13,7 @@ import PigsBuff from './pages/PigsBuff'
 import PigManagement from './pages/PigsManagement'
 import Register from './pages/Register'
 import SchedulePigs from './pages/SchedulePigs'
+import Dashboard from './pages/Dashboard'
 
 const logoutUser = async () => {
   localStorage.removeItem('token')
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     errorElement: <div>Not found</div>,
 
     children: [
+      {
+        path: 'dashboard',
+        element: <Dashboard />,
+      },
       {
         path: 'pig-buffs',
         element: <PigsBuff />,

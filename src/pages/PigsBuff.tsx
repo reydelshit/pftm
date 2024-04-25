@@ -39,7 +39,7 @@ export default function PigsBuff() {
 
   const user_id = localStorage.getItem('cmhs_token')
 
-  const fetchPigs = () => {
+  const fetchPigsBuff = () => {
     axios
       .get(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/buffs.php`, {
         params: {
@@ -59,7 +59,7 @@ export default function PigsBuff() {
   }
 
   useEffect(() => {
-    fetchPigs()
+    fetchPigsBuff()
   }, [])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -75,7 +75,7 @@ export default function PigsBuff() {
       })
       .then((res) => {
         if (res.data) {
-          fetchPigs()
+          fetchPigsBuff()
           setShowAddPig(!showAddPig)
         }
         console.log(res.data)
@@ -98,7 +98,7 @@ export default function PigsBuff() {
       .then((res) => {
         if (res.data) {
           console.log(res.data)
-          fetchPigs()
+          fetchPigsBuff()
         }
       })
   }
@@ -141,7 +141,7 @@ export default function PigsBuff() {
       })
       .then((res) => {
         setShowUpdateFormBuff(false)
-        fetchPigs()
+        fetchPigsBuff()
         console.log(res.data)
       })
   }

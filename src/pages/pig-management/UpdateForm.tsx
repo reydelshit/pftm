@@ -24,7 +24,7 @@ export default function UpdateForm({
           className="w-[50%] bg-primary-yellow p-8 rounded-lg"
         >
           <h1 className="font-bold text-2xl text-primary-red py-4">
-            UPDATE SOIL
+            UPDATE PIG
           </h1>
           <Label className="text-primary-red my-2 block">Pig Tag</Label>
           <Input

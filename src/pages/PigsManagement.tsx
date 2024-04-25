@@ -17,7 +17,7 @@ export default function PigsManagement() {
   )
   const [fieldUpdateID, setFieldUpdateID] = useState(0)
   const [selectedFarmer, setSelectedFarmer] = useState('')
-
+  const [latestEartag, setLatestEartag] = useState(0)
   const [building, setBuilding] = useState('' as string)
   const [pigType, setPigType] = useState('' as string)
   const user_id = localStorage.getItem('cmhs_token')
@@ -66,6 +66,7 @@ export default function PigsManagement() {
         user_id: user_id,
         pig_type: pigType,
         date_breed: pigDetails.date_breed ? pigDetails.date_breed : '',
+        pig_tag: latestEartag,
       })
       .then((res) => {
         if (res.data) {
@@ -121,7 +122,7 @@ export default function PigsManagement() {
   const handleUpdateSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     axios
-      .put(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/field.php`, {
+      .put(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
         pig_id: fieldUpdateID,
         pig_tag: pigDetails.pig_tag
           ? pigDetails.pig_tag
@@ -215,6 +216,7 @@ export default function PigsManagement() {
           handleSelectedFarmer={handleSelectedFarmer}
           hanldePigType={hanldePigType}
           pigType={pigType}
+          setLatestEartag={setLatestEartag}
         />
       )}
 

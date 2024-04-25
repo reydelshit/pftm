@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button'
-import { GrAnalytics, GrSchedules } from 'react-icons/gr'
+import { GiFarmer, GiLoveInjection } from 'react-icons/gi'
+import { GrAnalytics, GrScheduleNew } from 'react-icons/gr'
+import { LuPiggyBank } from 'react-icons/lu'
 import { RxDashboard } from 'react-icons/rx'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -15,18 +17,17 @@ export default function Sidebar() {
     <div className="block w-[20rem] h-dvh bg-primary-yellow text-primary-red fixed z-10">
       <div className=" flex flex-col justify-between w-full h-[90%]">
         <div className="flex flex-col font-semibold px-[1rem] mt-[4rem] mb-2">
-          {/* <Link
+          <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
-              currentPath == '/' || currentPath.includes('/crops')
+              currentPath == '/dashboard'
                 ? ' bg-primary-red text-primary-yellow rounded-full self-center flex justify-center w-full active:text-primary-yellow'
                 : ''
             } `}
-            to="/"
+            to="/dashboard"
           >
-            <GiPlantSeed className="text-md h-[1.5rem] w-[1.5rem]" />
-            SCHEDULE REPORTS
-          </Link> */}
-
+            <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
+            DASHBOARD
+          </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/pig-management'
@@ -35,7 +36,7 @@ export default function Sidebar() {
             } `}
             to="/pig-management"
           >
-            <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
+            <LuPiggyBank className="text-md h-[1.5rem] w-[1.5rem]" />
             PIG MANAGEMENT
           </Link>
 
@@ -47,7 +48,7 @@ export default function Sidebar() {
             } `}
             to="/pig-buffs"
           >
-            <RxDashboard className="text-md h-[1.5rem] w-[1.5rem]" />
+            <GiLoveInjection className="text-md h-[1.5rem] w-[1.5rem]" />
             PIG BUFFS
           </Link>
           <Link
@@ -58,7 +59,7 @@ export default function Sidebar() {
             } `}
             to="/generate-schedule"
           >
-            <GrSchedules className="text-md h-[1.5rem] w-[1.5rem]" /> SCHEDULE
+            <GrScheduleNew className="text-md h-[1.5rem] w-[1.5rem]" /> SCHEDULE
             GENERATION
           </Link>
           <Link
@@ -81,7 +82,7 @@ export default function Sidebar() {
             } `}
             to="/assigned-farmer"
           >
-            <GrAnalytics className="text-md h-[1.5rem] w-[1.5rem]" />
+            <GiFarmer className="text-md h-[1.5rem] w-[1.5rem]" />
             FARMERS
           </Link>
         </div>
