@@ -37,6 +37,7 @@ export default function PigManagementTable({
             Assigned Farmer
           </TableHead>
           <TableHead className="text-primary-color text-xl">Pig Type</TableHead>
+          <TableHead className="text-primary-color text-xl">Buff</TableHead>
 
           <TableHead className="text-primary-color text-xl">
             Breeding Date
@@ -66,6 +67,12 @@ export default function PigManagementTable({
               <TableCell>{pig.pen}</TableCell>
               <TableCell>{pig.assigned_farmer}</TableCell>
               <TableCell>{pig.pig_type}</TableCell>
+              <TableCell>
+                {pig.buff_name != null && pig.buff_type != null
+                  ? `${pig.buff_name} (${pig.buff_type})`
+                  : 'n/a'}
+              </TableCell>
+
               <TableCell>
                 {pig.date_breed.length > 0 && pig.date_breed != null
                   ? moment(pig.date_breed).format('ll')

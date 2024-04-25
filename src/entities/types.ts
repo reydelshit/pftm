@@ -17,6 +17,9 @@ export type PigTypes = {
   user_id: string
   date_breed: string
   farrowing_date: string
+  buff_id: number
+  buff_name: string
+  buff_type: string
 }
 
 export type PigBuffTypes = {

@@ -20,6 +20,7 @@ export default function PigsManagement() {
   const [latestEartag, setLatestEartag] = useState(0)
   const [building, setBuilding] = useState('' as string)
   const [pigType, setPigType] = useState('' as string)
+  const [selectedBuff, setSelectedBuff] = useState('' as string)
   const user_id = localStorage.getItem('pftm_token')
 
   const fetchPigs = () => {
@@ -35,6 +36,10 @@ export default function PigsManagement() {
           setPigData(res.data)
         }
       })
+  }
+
+  const handleSlectedBuff = (e: string) => {
+    setSelectedBuff(e)
   }
 
   const hanldePigType = (e: string) => {
@@ -67,6 +72,7 @@ export default function PigsManagement() {
         pig_type: pigType,
         date_breed: pigDetails.date_breed ? pigDetails.date_breed : '',
         pig_tag: latestEartag,
+        buff_id: selectedBuff,
       })
       .then((res) => {
         if (res.data) {
@@ -214,6 +220,7 @@ export default function PigsManagement() {
           hanldePigType={hanldePigType}
           pigType={pigType}
           setLatestEartag={setLatestEartag}
+          handleSlectedBuff={handleSlectedBuff}
         />
       )}
 
