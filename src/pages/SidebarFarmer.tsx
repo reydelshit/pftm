@@ -60,7 +60,6 @@ export default function Sidebar() {
             to="/generate-schedule"
           >
             <GrScheduleNew className="text-md h-[1.5rem] w-[1.5rem]" /> SCHEDULE
-            GENERATION
           </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${

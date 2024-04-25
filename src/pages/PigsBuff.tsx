@@ -88,11 +88,11 @@ export default function PigsBuff() {
     setPigBuffsDetails((values) => ({ ...values, [name]: value }))
   }
 
-  const handleDeletePig = (pig_id: number) => {
+  const handleDeleteBuff = (buff_id: number) => {
     axios
-      .delete(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/pigs.php`, {
+      .delete(`${import.meta.env.VITE_CMHS_LOCAL_HOST}/buffs.php`, {
         data: {
-          pig_id: pig_id,
+          buff_id: buff_id,
         },
       })
       .then((res) => {
@@ -208,42 +208,34 @@ export default function PigsBuff() {
                   </TableRow>
                 </TableHeader>
                 <TableBody className="text-xl ">
-                  {buffs.length > 0 ? (
-                    sortedData.map((buff, index) => (
-                      <TableRow
-                        key={index}
-                        className="text-primary-color border-b-4 border-primary-color"
-                      >
-                        {/* <TableCell>{field.buff_id}</TableCell> */}
-                        <TableCell>{buff.buff_id}</TableCell>
-                        <TableCell>{buff.buff_name}</TableCell>
+                  {sortedData.map((buff, index) => (
+                    <TableRow
+                      key={index}
+                      className="text-primary-color border-b-4 border-primary-color"
+                    >
+                      {/* <TableCell>{field.buff_id}</TableCell> */}
+                      <TableCell>{buff.buff_id}</TableCell>
+                      <TableCell>{buff.buff_name}</TableCell>
 
-                        <TableCell>{buff.buff_type}</TableCell>
+                      <TableCell>{buff.buff_type}</TableCell>
 
-                        <TableCell>
-                          {moment(buff.created_at).format('ll')}
-                        </TableCell>
+                      <TableCell>
+                        {moment(buff.created_at).format('ll')}
+                      </TableCell>
 
-                        <TableCell className="flex gap-2">
-                          <FaPencilAlt
-                            onClick={() => handleUpdateForm(buff.buff_id)}
-                            className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
-                          />
+                      <TableCell className="flex gap-2">
+                        <FaPencilAlt
+                          onClick={() => handleUpdateForm(buff.buff_id)}
+                          className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
+                        />
 
-                          <MdDelete
-                            onClick={() => handleDeletePig(buff.buff_id)}
-                            className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
-                          />
-                        </TableCell>
-                      </TableRow>
-                    ))
-                  ) : (
-                    <TableRow className="text-primary-color">
-                      <TableCell colSpan={8} className="text-center">
-                        No field found or loading...
+                        <MdDelete
+                          onClick={() => handleDeleteBuff(buff.buff_id)}
+                          className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
+                        />
                       </TableCell>
                     </TableRow>
-                  )}
+                  ))}
                 </TableBody>
               </Table>
             </div>
