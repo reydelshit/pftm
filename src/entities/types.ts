@@ -11,10 +11,12 @@ export type PigTypes = {
   assigned_farmer: string
   building: string
   pen: string
-
+  pig_type: string
   created_at: string
   short_desc: string
   user_id: string
+  date_breed: string
+  farrowing_date: string
 }
 
 export type PigBuffTypes = {

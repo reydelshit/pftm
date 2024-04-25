@@ -65,6 +65,15 @@ export default function UpdateForm({
             defaultValue={pigUpdateDetails?.assigned_farmer}
           />
 
+          <Label className="text-primary-red my-2 block">Pig Type</Label>
+          <Input
+            className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-primary-red"
+            placeholder="Change Pig Type"
+            name="pig_type"
+            onChange={handleInputChange}
+            defaultValue={pigUpdateDetails?.pig_type}
+          />
+
           <Label className="text-primary-red my-2 block">
             Short Description
           </Label>

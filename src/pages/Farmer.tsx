@@ -17,6 +17,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { MdDelete } from 'react-icons/md'
 import { FaPencilAlt } from 'react-icons/fa'
+import moment from 'moment'
 
 export default function Farmer() {
   const [showAddSched, setShowAddSched] = useState(false)
@@ -206,7 +207,9 @@ export default function Farmer() {
 
                         <TableCell>{farm.no_assigned_pigs}</TableCell>
 
-                        <TableCell>{farm.created_at}</TableCell>
+                        <TableCell>
+                          {moment(farm.created_at).format('ll')}
+                        </TableCell>
 
                         <TableCell className="flex gap-2">
                           <FaPencilAlt

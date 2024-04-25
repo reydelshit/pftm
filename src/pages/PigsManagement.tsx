@@ -19,7 +19,7 @@ export default function PigsManagement() {
   const [selectedFarmer, setSelectedFarmer] = useState('')
 
   const [building, setBuilding] = useState('' as string)
-
+  const [pigType, setPigType] = useState('' as string)
   const user_id = localStorage.getItem('cmhs_token')
 
   const fetchPigs = () => {
@@ -35,6 +35,10 @@ export default function PigsManagement() {
           setPigData(res.data)
         }
       })
+  }
+
+  const hanldePigType = (e: string) => {
+    setPigType(e)
   }
 
   const handleBuilding = (e: string) => {
@@ -60,6 +64,8 @@ export default function PigsManagement() {
         building: building,
         assigned_farmer: selectedFarmer,
         user_id: user_id,
+        pig_type: pigType,
+        date_breed: pigDetails.date_breed ? pigDetails.date_breed : '',
       })
       .then((res) => {
         if (res.data) {
@@ -130,6 +136,9 @@ export default function PigsManagement() {
         short_desc: pigDetails.short_desc
           ? pigDetails.short_desc
           : pigUpdateDetails?.short_desc!,
+        pig_type: pigDetails.pig_type
+          ? pigDetails.pig_type
+          : pigUpdateDetails?.pig_type!,
 
         user_id: user_id,
       })
@@ -204,6 +213,8 @@ export default function PigsManagement() {
           setShowAddPig={setShowAddPig}
           showAddPig={showAddPig}
           handleSelectedFarmer={handleSelectedFarmer}
+          hanldePigType={hanldePigType}
+          pigType={pigType}
         />
       )}
 

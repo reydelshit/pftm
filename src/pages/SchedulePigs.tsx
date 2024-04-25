@@ -24,6 +24,7 @@ import ButtonStyle from '@/lib/ButtonStyle'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { MdDelete } from 'react-icons/md'
+import moment from 'moment'
 
 export default function SchedulePigs() {
   const [showAddSched, setShowAddSched] = useState(false)
@@ -242,7 +243,9 @@ export default function SchedulePigs() {
 
                         <TableCell>{sched.pig_id}</TableCell>
 
-                        <TableCell>{sched.sched_date}</TableCell>
+                        <TableCell>
+                          {moment(sched.sched_date).format('ll')}
+                        </TableCell>
 
                         <TableCell className="flex gap-2">
                           {/* <FaPencilAlt
@@ -260,7 +263,7 @@ export default function SchedulePigs() {
                   ) : (
                     <TableRow className="text-primary-yellow">
                       <TableCell colSpan={8} className="text-center">
-                        No field found or loading...
+                        No sched found or loading...
                       </TableCell>
                     </TableRow>
                   )}

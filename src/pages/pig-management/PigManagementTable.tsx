@@ -11,6 +11,7 @@ import { MdDelete } from 'react-icons/md'
 import { FaPencilAlt } from 'react-icons/fa'
 
 import { PigTypes } from '@/entities/types'
+import moment from 'moment'
 
 type FieldManagementTableProps = {
   pigData: PigTypes[]
@@ -38,6 +39,18 @@ export default function PigManagementTable({
             Assigned Farmer
           </TableHead>
           <TableHead className="text-primary-yellow text-xl">
+            Pig Type
+          </TableHead>
+
+          <TableHead className="text-primary-yellow text-xl">
+            Breeding Date
+          </TableHead>
+
+          <TableHead className="text-primary-yellow text-xl">
+            Farrowing Schedule
+          </TableHead>
+
+          <TableHead className="text-primary-yellow text-xl">
             Created At
           </TableHead>
           <TableHead className="text-primary-yellow text-xl w-[10rem]"></TableHead>
@@ -56,6 +69,18 @@ export default function PigManagementTable({
 
               <TableCell>{pig.pen}</TableCell>
               <TableCell>{pig.assigned_farmer}</TableCell>
+              <TableCell>{pig.pig_type}</TableCell>
+              <TableCell>
+                {pig.date_breed.length > 0 && pig.date_breed != null
+                  ? moment(pig.date_breed).format('ll')
+                  : 'n/a'}
+              </TableCell>
+
+              <TableCell>
+                {pig.farrowing_date != null
+                  ? moment(pig.farrowing_date).format('ll')
+                  : 'n/a'}
+              </TableCell>
 
               <TableCell>{pig.created_at}</TableCell>
 

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
@@ -19,6 +20,8 @@ type AddFieldFomProps = {
 
   handleBuilding: (e: string) => void
   handleSelectedFarmer: (e: string) => void
+  hanldePigType: (e: string) => void
+  pigType: string
 }
 
 export default function AddPigForm({
@@ -28,6 +31,8 @@ export default function AddPigForm({
   setShowAddPig,
   handleSelectedFarmer,
   handleBuilding,
+  hanldePigType,
+  pigType,
 }: AddFieldFomProps) {
   const [farmer, setFarmer] = useState<AssignedFarmerTypes[]>([])
   const [searchFarmer, setSearchFarmer] = useState('')
@@ -110,6 +115,30 @@ export default function AddPigForm({
               ))}
           </SelectContent>
         </Select>
+
+        <Select required onValueChange={(e: string) => hanldePigType(e)}>
+          <SelectTrigger className="w-full h-[4rem] bg-primary-red text-primary-yellow border-4 border-primary-yellow font-bold rounded-full">
+            <SelectValue placeholder="Pig Type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Sow">Sow</SelectItem>
+            <SelectItem value="Boar">Boar</SelectItem>
+          </SelectContent>
+        </Select>
+
+        {pigType === 'Sow' && (
+          <div className="flex items-start w-full flex-col">
+            <Label className="text-primary-red my-2 block">Date of Breed</Label>
+            <Input
+              className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
+              name="date_breed"
+              required
+              type="datetime-local"
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
         <Input
           className="mb-2 border-4 border-primary-red p-6 rounded-full placeholder:text-primary-red placeholder:text-xl text-white"
           placeholder="Short Description"

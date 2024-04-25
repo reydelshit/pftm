@@ -21,6 +21,7 @@ import {
 import { PigBuffTypes } from '@/entities/types'
 import ButtonStyle from '@/lib/ButtonStyle'
 import axios from 'axios'
+import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { FaPencilAlt } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
@@ -222,7 +223,9 @@ export default function PigsBuff() {
 
                         <TableCell>{buff.buff_type}</TableCell>
 
-                        <TableCell>{buff.created_at}</TableCell>
+                        <TableCell>
+                          {moment(buff.created_at).format('ll')}
+                        </TableCell>
 
                         <TableCell className="flex gap-2">
                           <FaPencilAlt
