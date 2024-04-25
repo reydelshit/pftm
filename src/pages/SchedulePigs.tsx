@@ -186,7 +186,7 @@ export default function SchedulePigs() {
     <div className="w-full h-dvh flex items-start flex-col pl-[20rem] relative">
       <div className="my-[2.5rem] flex justify-between items-center w-full">
         <h1 className="text-[5rem] font-semibold text-primary-yellow">
-          PIG Sched
+          SET SCHEDULE
         </h1>
       </div>
 
