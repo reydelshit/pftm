@@ -304,7 +304,7 @@ export default function SchedulePigs() {
                 {pigData
                   .filter((pig) => pig.pig_tag.includes(searchPigs))
                   .map((pig, index) => (
-                    <SelectItem key={index} value={String(pig.pig_id)}>
+                    <SelectItem key={index} value={String(pig.pig_tag)}>
                       {pig.pig_tag}
                     </SelectItem>
                   ))}

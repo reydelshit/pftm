@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button'
-import { FieldTypes, PigTypes } from '@/entities/types'
+import { PigTypes } from '@/entities/types'
 import ButtonStyle from '@/lib/ButtonStyle'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import AddPigForm from './field-management/AddPigForm'
-import PigManagementTable from './field-management/PigManagementTable'
-import UpdateForm from './field-management/UpdateForm'
+import AddPigForm from './pig-management/AddPigForm'
+import PigManagementTable from './pig-management/PigManagementTable'
+import UpdateForm from './pig-management/UpdateForm'
 
 export default function PigsManagement() {
   const [showAddPig, setShowAddPig] = useState(false)
@@ -16,8 +16,6 @@ export default function PigsManagement() {
     null,
   )
   const [fieldUpdateID, setFieldUpdateID] = useState(0)
-  const [irrigationSystem, setIrrigationSystem] = useState('')
-  const [soilType, setSoilType] = useState('')
 
   const [building, setBuilding] = useState('' as string)
 
@@ -36,10 +34,6 @@ export default function PigsManagement() {
           setPigData(res.data)
         }
       })
-  }
-
-  const handleIrrigation = (e: string) => {
-    setIrrigationSystem(e)
   }
 
   const handleBuilding = (e: string) => {
