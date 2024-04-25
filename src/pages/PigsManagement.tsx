@@ -150,9 +150,9 @@ export default function PigsManagement() {
   const sortedData = [...pigData].sort((a, b) => {
     // Sort by crops name
     if (sortOrder === 'asc') {
-      return a.pig_tag.localeCompare(b.assigned_farmer)
+      return a.pig_tag.localeCompare(b.pig_tag)
     } else {
-      return b.pig_tag.localeCompare(a.assigned_farmer)
+      return b.pig_tag.localeCompare(a.pig_tag)
     }
   })
 

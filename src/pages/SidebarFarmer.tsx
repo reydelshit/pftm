@@ -1,10 +1,7 @@
-import { Link, useLocation } from 'react-router-dom'
-import { RxDashboard } from 'react-icons/rx'
-import { GiPlantSeed } from 'react-icons/gi'
-import { GrAnalytics } from 'react-icons/gr'
-import { GrSchedules } from 'react-icons/gr'
 import { Button } from '@/components/ui/button'
-import WeatherApi from '@/components/WeatherApi'
+import { GrAnalytics, GrSchedules } from 'react-icons/gr'
+import { RxDashboard } from 'react-icons/rx'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Sidebar() {
   const currentPath = useLocation().pathname

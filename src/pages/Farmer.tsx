@@ -138,9 +138,8 @@ export default function Farmer() {
   }
 
   const sortedData = [...farmer].sort((a, b) => {
-    // Sort by crops name
     if (sortOrder === 'asc') {
-      return a.farmer_name.localeCompare(b.created_at)
+      return a.farmer_name.localeCompare(b.farmer_name)
     } else {
       return b.farmer_name.localeCompare(a.created_at)
     }

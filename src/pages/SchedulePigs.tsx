@@ -175,9 +175,9 @@ export default function SchedulePigs() {
   const sortedData = [...sched].sort((a, b) => {
     // Sort by crops name
     if (sortOrder === 'asc') {
-      return a.sched_name.localeCompare(b.sched_date)
+      return String(a.pig_id).localeCompare(String(b.pig_id))
     } else {
-      return b.sched_name.localeCompare(a.sched_date)
+      return String(b.pig_id).localeCompare(String(a.pig_id))
     }
   })
 
@@ -206,7 +206,7 @@ export default function SchedulePigs() {
                 background="yellow"
                 onCLick={() => setShowAddSched(!showAddSched)}
               >
-                Add Buff
+                SET SCHEDULE
               </ButtonStyle>
             </div>
             <div className="w-[100%] min-h-[80%] border-4 border-primary-yellow rounded-3xl p-4">
@@ -278,7 +278,7 @@ export default function SchedulePigs() {
             className="w-[40%] bg-primary-yellow p-4 rounded-lg"
           >
             <h1 className="font-bold text-2xl text-primary-red py-4">
-              Add Sched
+              SET SCHEDULE
             </h1>
 
             <div className="flex items-start w-full flex-col">
