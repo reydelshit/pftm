@@ -37,7 +37,7 @@ export default function SchedulePigs() {
   //   useState<PigBuffTypes | null>(null)
   // const [schedUpdateID, setSchedUpdateID] = useState(0)
   const [pigData, setPigData] = useState<PigTypes[]>([])
-
+  const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedPigs, setSelectedPigs] = useState('')
   const [searchPigs, setSearchPigs] = useState('')
 
@@ -77,6 +77,10 @@ export default function SchedulePigs() {
     setSelectedPigs(e)
   }
 
+  const handleCategory = (e: string) => {
+    setSelectedCategory(e)
+  }
+
   useEffect(() => {
     fetchSched()
     fetchPigs()
@@ -92,6 +96,7 @@ export default function SchedulePigs() {
         ...pigSchedDetails,
         user_id: user_id,
         pig_id: selectedPigs,
+        category: selectedCategory,
       })
       .then((res) => {
         if (res.data) {
@@ -220,9 +225,15 @@ export default function SchedulePigs() {
                     <TableHead className="text-primary-color text-xl">
                       Pig Tag
                     </TableHead>
+                    <TableHead className="text-primary-color text-xl">
+                      Category
+                    </TableHead>
 
                     <TableHead className="text-primary-color text-xl">
                       Schedule Date
+                    </TableHead>
+                    <TableHead className="text-primary-color text-xl">
+                      Assigned Farmer
                     </TableHead>
                     <TableHead className="text-primary-color text-xl "></TableHead>
                   </TableRow>
@@ -239,10 +250,13 @@ export default function SchedulePigs() {
                         <TableCell>{sched.sched_name}</TableCell>
 
                         <TableCell>{sched.pig_id}</TableCell>
+                        <TableCell>{sched.category}</TableCell>
 
                         <TableCell>
                           {moment(sched.sched_date).format('ll')}
                         </TableCell>
+
+                        <TableCell>{sched.assigned_farmer}</TableCell>
 
                         <TableCell className="flex gap-2">
                           {/* <FaPencilAlt
@@ -292,6 +306,17 @@ export default function SchedulePigs() {
                 onChange={handleInputChange}
               />
             </div>
+
+            <Select required onValueChange={(e: string) => handleCategory(e)}>
+              <SelectTrigger className="w-full h-[4rem] bg-primary-secondary text-primary-color border-4 border-primary-color font-bold rounded-full">
+                <SelectValue placeholder="Category.." />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Sell">Sell</SelectItem>
+                <SelectItem value="Slaughter">Slaughter</SelectItem>
+                <SelectItem value="Breeding">Breeding</SelectItem>
+              </SelectContent>
+            </Select>
 
             <Select required onValueChange={(e: string) => handleSchedPigs(e)}>
               <SelectTrigger className="w-full h-[4rem] bg-primary-secondary text-primary-color border-4 border-primary-color font-bold rounded-full">

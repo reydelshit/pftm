@@ -97,7 +97,8 @@ export default function LivestockReports() {
                 Add Buff
               </ButtonStyle> */}
             </div>
-            <div className="w-[100%] min-h-[80%] border-4 border-primary-color rounded-3xl p-4">
+
+            {/* <div className="w-[100%] min-h-[80%] border-4 border-primary-color rounded-3xl p-4">
               <Table className="w-full ">
                 <TableHeader>
                   <TableRow className="text-primary-color border-b-4 border-primary-color">
@@ -124,7 +125,6 @@ export default function LivestockReports() {
                         key={index}
                         className="text-primary-color border-b-4 border-primary-color"
                       >
-                        {/* <TableCell>{field.sched_id}</TableCell> */}
                         <TableCell>{sched.sched_id}</TableCell>
                         <TableCell>{sched.sched_name}</TableCell>
 
@@ -132,12 +132,7 @@ export default function LivestockReports() {
 
                         <TableCell>{sched.sched_date}</TableCell>
 
-                        <TableCell className="flex gap-2">
-                          {/* <FaPencilAlt
-                            onClick={() => handleUpdateForm(sched.sched_id)}
-                            className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
-                          /> */}
-                        </TableCell>
+                        <TableCell className="flex gap-2"></TableCell>
                       </TableRow>
                     ))
                   ) : (
@@ -149,7 +144,7 @@ export default function LivestockReports() {
                   )}
                 </TableBody>
               </Table>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

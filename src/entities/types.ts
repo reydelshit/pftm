@@ -37,6 +37,8 @@ export type SchedulePigsTypes = {
   sched_date: string
   created_at: string
   user_id: string
+  assigned_farmer: string
+  category: string
 }
 
 export type AssignedFarmerTypes = {
