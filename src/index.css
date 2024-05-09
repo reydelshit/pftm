@@ -10,6 +10,30 @@ body {
   overflow-x: hidden;
 }
 
+:root {
+  --fc-border-color: #430a5d;
+  --fc-daygrid-event-dot-width: 1px;
+
+  /* style headers button  */
+}
+
+.fc-button {
+  background-color: #430a5d !important;
+  border: none !important;
+  outline: none !important;
+}
+
+@media print {
+  /* @page {
+    size: 50mm 150mm;
+  } */
+
+  .print-container {
+    width: 50%;
+    overflow: auto;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -54,5 +78,14 @@ body {
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 263.4 70% 50.4%;
+  }
+}
+
+@media print {
+  .calendar-container {
+    display: none;
+  }
+  button {
+    display: none;
   }
 }

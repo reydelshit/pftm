@@ -1,30 +1,9 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-
-import { Label } from '@/components/ui/label'
 import { PigTypes, SchedulePigsTypes } from '@/entities/types'
-import ButtonStyle from '@/lib/ButtonStyle'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { MdDelete } from 'react-icons/md'
-import moment from 'moment'
+import { useEffect, useRef, useState } from 'react'
+import { Calendar } from 'react-big-calendar'
+import { useReactToPrint } from 'react-to-print'
+import ScheduleNew from './ScheduleNew'
 
 export default function SchedulePigs() {
   const [showAddSched, setShowAddSched] = useState(false)
@@ -187,6 +166,30 @@ export default function SchedulePigs() {
     }
   })
 
+  const events = [
+    {
+      id: 0,
+      title: 'Meeting',
+      start: new Date(2024, 4, 10, 10, 0),
+      end: new Date(2024, 4, 10, 12, 0),
+    },
+    {
+      id: 1,
+      title: 'Lunch',
+      start: new Date(2024, 4, 10, 12, 0),
+      end: new Date(2024, 4, 10, 13, 0),
+    },
+  ]
+
+  const handlePrint = useReactToPrint({
+    content: () => calendarRef.current,
+  })
+
+  const calendarRef = useRef<Calendar<
+    { id: number; title: string; start: Date; end: Date },
+    object
+  > | null>(null)
+
   return (
     <div className="w-full h-dvh flex items-start flex-col pl-[20rem] relative">
       <div className="my-[2.5rem] flex justify-between items-center w-full">
@@ -198,7 +201,7 @@ export default function SchedulePigs() {
       <div className="flex gap-10 w-full h-full justify-around">
         <div className="w-full h-full flex justify-between items-start ">
           <div className="w-full h-[95%] bg-primary-secondary rounded-2xl p-4 gap-2 flex justify-start items-center flex-col">
-            <div className="w-full justify-between flex">
+            {/* <div className="w-full justify-between flex">
               <div>
                 <Button
                   onClick={toggleSortOrder}
@@ -208,11 +211,16 @@ export default function SchedulePigs() {
                 </Button>
               </div>
 
+              <ButtonStyle onCLick={handlePrint}> PRINT </ButtonStyle>
+              
               <ButtonStyle onCLick={() => setShowAddSched(!showAddSched)}>
                 SET SCHEDULE
               </ButtonStyle>
-            </div>
-            <div className="w-[100%] min-h-[80%] border-4 border-primary-color rounded-3xl p-4">
+            </div> */}
+
+            <ScheduleNew />
+
+            {/* <div className="w-[100%] min-h-full border-4 border-primary-color rounded-3xl p-4">
               <Table className="w-full ">
                 <TableHeader>
                   <TableRow className="text-primary-color border-b-4 border-primary-color">
@@ -245,7 +253,6 @@ export default function SchedulePigs() {
                         key={index}
                         className="text-primary-color border-b-4 border-primary-color"
                       >
-                        {/* <TableCell>{field.sched_id}</TableCell> */}
                         <TableCell>{sched.sched_id}</TableCell>
                         <TableCell>{sched.sched_name}</TableCell>
 
@@ -259,11 +266,6 @@ export default function SchedulePigs() {
                         <TableCell>{sched.assigned_farmer}</TableCell>
 
                         <TableCell className="flex gap-2">
-                          {/* <FaPencilAlt
-                            onClick={() => handleUpdateForm(sched.sched_id)}
-                            className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
-                          /> */}
-
                           <MdDelete
                             onClick={() => handleDeleteSched(sched.sched_id)}
                             className="p-2 text-[2.5rem] text-primary-color cursor-pointer"
@@ -280,12 +282,16 @@ export default function SchedulePigs() {
                   )}
                 </TableBody>
               </Table>
-            </div>
+
+              <div className="calendar-container" style={{ display: 'none' }}>
+                <MyCalendar calendarRef={calendarRef} events={events} />
+              </div>
+            </div> */}
           </div>
         </div>
       </div>
 
-      {showAddSched && (
+      {/* {showAddSched && (
         <div className="absolute w-[100%] h-full top-0 z-50 bg-white bg-opacity-90 flex justify-center items-center">
           <form
             onSubmit={handleSubmit}
@@ -368,7 +374,7 @@ export default function SchedulePigs() {
             </div>
           </form>
         </div>
-      )}
+      )} */}
 
       {/* {showUpdateFormSched && (
         <div className="absolute w-[100%] h-full top-0 z-50 bg-primary-secondary bg-opacity-90 flex justify-center items-center">

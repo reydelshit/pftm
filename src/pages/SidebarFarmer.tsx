@@ -30,6 +30,16 @@ export default function Sidebar() {
           </Link>
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
+              currentPath == '/generate-schedule'
+                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
+                : ''
+            } `}
+            to="/generate-schedule"
+          >
+            <GrScheduleNew className="text-md h-[1.5rem] w-[1.5rem]" /> SCHEDULE
+          </Link>
+          <Link
+            className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/pig-management'
                 ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
                 : ''
@@ -51,16 +61,7 @@ export default function Sidebar() {
             <GiLoveInjection className="text-md h-[1.5rem] w-[1.5rem]" />
             PIG BUFFS
           </Link>
-          <Link
-            className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
-              currentPath == '/generate-schedule'
-                ? ' bg-primary-secondary text-primary-color rounded-full self-center flex justify-center w-full active:text-primary-color'
-                : ''
-            } `}
-            to="/generate-schedule"
-          >
-            <GrScheduleNew className="text-md h-[1.5rem] w-[1.5rem]" /> SCHEDULE
-          </Link>
+
           <Link
             className={`p-2 mb-2 flex items-center gap-2 text-[1.5rem] ${
               currentPath == '/reports'

@@ -5,13 +5,15 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LayoutFarmer from './root/LayoutFarmer'
 
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+
 import Login from './Login'
 import Farmer from './pages/Farmer'
 import LivestockReports from './pages/LivestockReports'
 import PigsBuff from './pages/PigsBuff'
 import PigManagement from './pages/PigsManagement'
 import Register from './pages/Register'
-import SchedulePigs from './pages/SchedulePigs'
+import ScheduleNew from './pages/ScheduleNew'
 import Root from './root/Root'
 
 const logoutUser = async () => {
@@ -45,7 +47,7 @@ const router = createBrowserRouter([
 
       {
         path: 'generate-schedule',
-        element: <SchedulePigs />,
+        element: <ScheduleNew />,
       },
 
       {
