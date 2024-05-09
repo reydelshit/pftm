@@ -250,7 +250,7 @@ export default function PigsBuff() {
             className="w-[40%] bg-primary-color p-4 rounded-lg ml-[-15rem]"
           >
             <h1 className="font-bold text-2xl text-primary-secondary py-4">
-              ADD PIG
+              ADD BUFFS
             </h1>
 
             <div className="flex items-center gap-4 w-full ">
