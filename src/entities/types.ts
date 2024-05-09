@@ -6,6 +6,7 @@ export type UserType = {
 }
 
 export type PigTypes = {
+  breeding_date: string | number | Date
   pig_id: number
   pig_tag: string
   assigned_farmer: string
