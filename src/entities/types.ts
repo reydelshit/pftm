@@ -52,8 +52,11 @@ export type AssignedFarmerTypes = {
 }
 
 export type NotificationTypes = {
-  farrowing_date: string
+  NOTIFICATION_DATE: string
   pig_tag: string
   date_breed: string
   remarks: string
+
+  calendar_title: string
+  start: string
 }
